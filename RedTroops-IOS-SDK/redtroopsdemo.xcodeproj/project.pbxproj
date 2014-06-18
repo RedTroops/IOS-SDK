@@ -1,0 +1,413 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0091A48F18AC9BE500D9E814 /* BannersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0091A48E18AC9BE500D9E814 /* BannersViewController.m */; };
+		0095F4C218A1FC6F00098FC9 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 0095F4C118A1FC6F00098FC9 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		0095F4C418A1FDB300098FC9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0095F4C318A1FDB300098FC9 /* SystemConfiguration.framework */; };
+		070801CC17F395F4002D3189 /* RedTroops.m in Sources */ = {isa = PBXBuildFile; fileRef = 070801CB17F395F4002D3189 /* RedTroops.m */; };
+		070DA0D717F7732200A43A0B /* RedTroopsBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 070DA0D617F7732200A43A0B /* RedTroopsBanner.m */; };
+		0760419917C3E96F00865253 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0760419817C3E96F00865253 /* UIKit.framework */; };
+		0760419B17C3E96F00865253 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0760419A17C3E96F00865253 /* Foundation.framework */; };
+		0760419D17C3E96F00865253 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0760419C17C3E96F00865253 /* CoreGraphics.framework */; };
+		076041A317C3E96F00865253 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 076041A117C3E96F00865253 /* InfoPlist.strings */; };
+		076041A517C3E96F00865253 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 076041A417C3E96F00865253 /* main.m */; };
+		076041A917C3E96F00865253 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 076041A817C3E96F00865253 /* AppDelegate.m */; };
+		076041AB17C3E97000865253 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 076041AA17C3E97000865253 /* Default.png */; };
+		076041AD17C3E97000865253 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 076041AC17C3E97000865253 /* Default@2x.png */; };
+		076041AF17C3E97000865253 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 076041AE17C3E97000865253 /* Default-568h@2x.png */; };
+		076041B217C3E97000865253 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 076041B117C3E97000865253 /* ViewController.m */; };
+		076041B517C3E97000865253 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 076041B317C3E97000865253 /* ViewController.xib */; };
+		076041BF17C3EE1C00865253 /* RTPushNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 076041BE17C3EE1C00865253 /* RTPushNotificationManager.m */; };
+		07AA62D017C3FFD8000E8E89 /* RTCommonInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 07AA62CF17C3FFD8000E8E89 /* RTCommonInfo.m */; };
+		07AA62D317C403C6000E8E89 /* RTRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 07AA62D217C403C6000E8E89 /* RTRequestManager.m */; };
+		07AA62E417C4097D000E8E89 /* RTNagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07AA62E317C4097D000E8E89 /* RTNagView.m */; };
+		07AA62E617C40E12000E8E89 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07AA62E517C40E12000E8E89 /* AdSupport.framework */; };
+		07AA62E817C40E18000E8E89 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07AA62E717C40E18000E8E89 /* QuartzCore.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		008B2A1A18A344B9002B4BF0 /* RedTroopsIOSSDK-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RedTroopsIOSSDK-Prefix.pch"; sourceTree = "<group>"; };
+		008B2A1B18A344B9002B4BF0 /* RedTroopsIOSSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RedTroopsIOSSDK.h; sourceTree = "<group>"; };
+		008B2A1D18A344B9002B4BF0 /* RedTroopsIOSSDK.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RedTroopsIOSSDK.m; sourceTree = "<group>"; };
+		008B2A2418A344B9002B4BF0 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		008B2A5018A34AF9002B4BF0 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		0091A48D18AC9BE500D9E814 /* BannersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannersViewController.h; sourceTree = "<group>"; };
+		0091A48E18AC9BE500D9E814 /* BannersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannersViewController.m; sourceTree = "<group>"; };
+		0095F4C018A1FC6F00098FC9 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		0095F4C118A1FC6F00098FC9 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		0095F4C318A1FDB300098FC9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		070801CA17F395F4002D3189 /* RedTroops.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedTroops.h; sourceTree = "<group>"; };
+		070801CB17F395F4002D3189 /* RedTroops.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedTroops.m; sourceTree = "<group>"; };
+		070DA0D517F7732200A43A0B /* RedTroopsBanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedTroopsBanner.h; sourceTree = "<group>"; };
+		070DA0D617F7732200A43A0B /* RedTroopsBanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedTroopsBanner.m; sourceTree = "<group>"; };
+		0760419517C3E96F00865253 /* RedTroopsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedTroopsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0760419817C3E96F00865253 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		0760419A17C3E96F00865253 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		0760419C17C3E96F00865253 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		076041A017C3E96F00865253 /* RedTroopsDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RedTroopsDemo-Info.plist"; sourceTree = "<group>"; };
+		076041A217C3E96F00865253 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		076041A417C3E96F00865253 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		076041A617C3E96F00865253 /* RedTroopsDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RedTroopsDemo-Prefix.pch"; sourceTree = "<group>"; };
+		076041A717C3E96F00865253 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		076041A817C3E96F00865253 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		076041AA17C3E97000865253 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		076041AC17C3E97000865253 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		076041AE17C3E97000865253 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		076041B017C3E97000865253 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		076041B117C3E97000865253 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		076041B417C3E97000865253 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		076041BD17C3EE1C00865253 /* RTPushNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTPushNotificationManager.h; sourceTree = "<group>"; };
+		076041BE17C3EE1C00865253 /* RTPushNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTPushNotificationManager.m; sourceTree = "<group>"; };
+		07AA62CE17C3FFD8000E8E89 /* RTCommonInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTCommonInfo.h; sourceTree = "<group>"; };
+		07AA62CF17C3FFD8000E8E89 /* RTCommonInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTCommonInfo.m; sourceTree = "<group>"; };
+		07AA62D117C403C5000E8E89 /* RTRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTRequestManager.h; sourceTree = "<group>"; };
+		07AA62D217C403C6000E8E89 /* RTRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTRequestManager.m; sourceTree = "<group>"; };
+		07AA62E217C4097D000E8E89 /* RTNagView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTNagView.h; sourceTree = "<group>"; };
+		07AA62E317C4097D000E8E89 /* RTNagView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTNagView.m; sourceTree = "<group>"; };
+		07AA62E517C40E12000E8E89 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		07AA62E717C40E18000E8E89 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0760419217C3E96F00865253 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0095F4C418A1FDB300098FC9 /* SystemConfiguration.framework in Frameworks */,
+				07AA62E817C40E18000E8E89 /* QuartzCore.framework in Frameworks */,
+				07AA62E617C40E12000E8E89 /* AdSupport.framework in Frameworks */,
+				0760419917C3E96F00865253 /* UIKit.framework in Frameworks */,
+				0760419B17C3E96F00865253 /* Foundation.framework in Frameworks */,
+				0760419D17C3E96F00865253 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		008B2A1818A344B9002B4BF0 /* RedTroopsIOSSDK */ = {
+			isa = PBXGroup;
+			children = (
+				008B2A1B18A344B9002B4BF0 /* RedTroopsIOSSDK.h */,
+				008B2A1D18A344B9002B4BF0 /* RedTroopsIOSSDK.m */,
+				008B2A1918A344B9002B4BF0 /* Supporting Files */,
+			);
+			path = RedTroopsIOSSDK;
+			sourceTree = "<group>";
+		};
+		008B2A1918A344B9002B4BF0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				008B2A1A18A344B9002B4BF0 /* RedTroopsIOSSDK-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0760418C17C3E96F00865253 = {
+			isa = PBXGroup;
+			children = (
+				076041BC17C3E99F00865253 /* Source */,
+				0760419E17C3E96F00865253 /* RedTroopsDemo */,
+				008B2A1818A344B9002B4BF0 /* RedTroopsIOSSDK */,
+				0760419717C3E96F00865253 /* Frameworks */,
+				0760419617C3E96F00865253 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0760419617C3E96F00865253 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0760419517C3E96F00865253 /* RedTroopsDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0760419717C3E96F00865253 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				008B2A5018A34AF9002B4BF0 /* XCTest.framework */,
+				0095F4C318A1FDB300098FC9 /* SystemConfiguration.framework */,
+				07AA62E717C40E18000E8E89 /* QuartzCore.framework */,
+				07AA62E517C40E12000E8E89 /* AdSupport.framework */,
+				0760419817C3E96F00865253 /* UIKit.framework */,
+				0760419A17C3E96F00865253 /* Foundation.framework */,
+				0760419C17C3E96F00865253 /* CoreGraphics.framework */,
+				008B2A2418A344B9002B4BF0 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0760419E17C3E96F00865253 /* RedTroopsDemo */ = {
+			isa = PBXGroup;
+			children = (
+				0760419F17C3E96F00865253 /* Supporting Files */,
+				076041A717C3E96F00865253 /* AppDelegate.h */,
+				076041A817C3E96F00865253 /* AppDelegate.m */,
+				076041B017C3E97000865253 /* ViewController.h */,
+				076041B117C3E97000865253 /* ViewController.m */,
+				076041B317C3E97000865253 /* ViewController.xib */,
+			);
+			path = RedTroopsDemo;
+			sourceTree = "<group>";
+		};
+		0760419F17C3E96F00865253 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				076041A017C3E96F00865253 /* RedTroopsDemo-Info.plist */,
+				076041A117C3E96F00865253 /* InfoPlist.strings */,
+				076041A417C3E96F00865253 /* main.m */,
+				076041A617C3E96F00865253 /* RedTroopsDemo-Prefix.pch */,
+				076041AA17C3E97000865253 /* Default.png */,
+				076041AC17C3E97000865253 /* Default@2x.png */,
+				076041AE17C3E97000865253 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		076041BC17C3E99F00865253 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				0091A48D18AC9BE500D9E814 /* BannersViewController.h */,
+				0091A48E18AC9BE500D9E814 /* BannersViewController.m */,
+				0095F4C018A1FC6F00098FC9 /* Reachability.h */,
+				0095F4C118A1FC6F00098FC9 /* Reachability.m */,
+				07AA62CE17C3FFD8000E8E89 /* RTCommonInfo.h */,
+				07AA62CF17C3FFD8000E8E89 /* RTCommonInfo.m */,
+				07AA62D117C403C5000E8E89 /* RTRequestManager.h */,
+				07AA62D217C403C6000E8E89 /* RTRequestManager.m */,
+				07AA62E217C4097D000E8E89 /* RTNagView.h */,
+				07AA62E317C4097D000E8E89 /* RTNagView.m */,
+				076041BD17C3EE1C00865253 /* RTPushNotificationManager.h */,
+				076041BE17C3EE1C00865253 /* RTPushNotificationManager.m */,
+				070801CA17F395F4002D3189 /* RedTroops.h */,
+				070801CB17F395F4002D3189 /* RedTroops.m */,
+				070DA0D517F7732200A43A0B /* RedTroopsBanner.h */,
+				070DA0D617F7732200A43A0B /* RedTroopsBanner.m */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0760419417C3E96F00865253 /* RedTroopsDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 076041B817C3E97000865253 /* Build configuration list for PBXNativeTarget "RedTroopsDemo" */;
+			buildPhases = (
+				0760419117C3E96F00865253 /* Sources */,
+				0760419217C3E96F00865253 /* Frameworks */,
+				0760419317C3E96F00865253 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RedTroopsDemo;
+			productName = RedTroopsDemo;
+			productReference = 0760419517C3E96F00865253 /* RedTroopsDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0760418D17C3E96F00865253 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = RedTroops;
+				TargetAttributes = {
+					0760419417C3E96F00865253 = {
+						DevelopmentTeam = 4SFF96S69G;
+					};
+				};
+			};
+			buildConfigurationList = 0760419017C3E96F00865253 /* Build configuration list for PBXProject "redtroopsdemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 0760418C17C3E96F00865253;
+			productRefGroup = 0760419617C3E96F00865253 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0760419417C3E96F00865253 /* RedTroopsDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0760419317C3E96F00865253 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				076041A317C3E96F00865253 /* InfoPlist.strings in Resources */,
+				076041AB17C3E97000865253 /* Default.png in Resources */,
+				076041AD17C3E97000865253 /* Default@2x.png in Resources */,
+				076041AF17C3E97000865253 /* Default-568h@2x.png in Resources */,
+				076041B517C3E97000865253 /* ViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0760419117C3E96F00865253 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				076041A517C3E96F00865253 /* main.m in Sources */,
+				076041A917C3E96F00865253 /* AppDelegate.m in Sources */,
+				070801CC17F395F4002D3189 /* RedTroops.m in Sources */,
+				0095F4C218A1FC6F00098FC9 /* Reachability.m in Sources */,
+				0091A48F18AC9BE500D9E814 /* BannersViewController.m in Sources */,
+				076041B217C3E97000865253 /* ViewController.m in Sources */,
+				076041BF17C3EE1C00865253 /* RTPushNotificationManager.m in Sources */,
+				07AA62D017C3FFD8000E8E89 /* RTCommonInfo.m in Sources */,
+				07AA62D317C403C6000E8E89 /* RTRequestManager.m in Sources */,
+				070DA0D717F7732200A43A0B /* RedTroopsBanner.m in Sources */,
+				07AA62E417C4097D000E8E89 /* RTNagView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		076041A117C3E96F00865253 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				076041A217C3E96F00865253 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		076041B317C3E97000865253 /* ViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				076041B417C3E97000865253 /* en */,
+			);
+			name = ViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		076041B617C3E97000865253 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		076041B717C3E97000865253 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		076041B917C3E97000865253 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RedTroopsDemo/RedTroopsDemo-Prefix.pch";
+				INFOPLIST_FILE = "RedTroopsDemo/RedTroopsDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		076041BA17C3E97000865253 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RedTroopsDemo/RedTroopsDemo-Prefix.pch";
+				INFOPLIST_FILE = "RedTroopsDemo/RedTroopsDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0760419017C3E96F00865253 /* Build configuration list for PBXProject "redtroopsdemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				076041B617C3E97000865253 /* Debug */,
+				076041B717C3E97000865253 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		076041B817C3E97000865253 /* Build configuration list for PBXNativeTarget "RedTroopsDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				076041B917C3E97000865253 /* Debug */,
+				076041BA17C3E97000865253 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0760418D17C3E96F00865253 /* Project object */;
+}

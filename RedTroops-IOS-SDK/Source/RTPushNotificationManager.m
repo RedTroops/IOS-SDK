@@ -25,8 +25,6 @@ NSString *RED_TROOPS_SHOW_ADS = @"showAd";
 
 + (void)handlePushRegistration:(NSString *)devToken
 {
-    NSLog(@"Device Token: %@", [RTCommonInfo deviceToken]);
-
     // 1.3
 	[self performSelectorInBackground:@selector(sendDevTokenToServer:) withObject:devToken];
 }

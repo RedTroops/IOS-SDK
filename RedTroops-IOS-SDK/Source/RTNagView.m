@@ -67,7 +67,7 @@ extern NSString *RED_TROOPS_BASE_URL,*RED_TROOPS_GET_ADS,*RED_TROOPS_SHOW_ADS;
                               options:NSJSONReadingMutableContainers
                               error:&error];
         
-        NSLog(@"HTML Popup Response: %@",json);
+        //NSLog(@"HTML Popup Response: %@",json);
 
         if ((int)[[json valueForKey:@"success"] integerValue] == 1) {
             
@@ -79,9 +79,7 @@ extern NSString *RED_TROOPS_BASE_URL,*RED_TROOPS_GET_ADS,*RED_TROOPS_SHOW_ADS;
       
                     NSString *bannerType= [bannerDic objectForKey:@"type"];
                     NSString *bannerId = [bannerDic objectForKey:@"id"];
-                    
-                    NSLog(@"%@,%@",bannerType,bannerId);
-                    
+                                        
                     if ([bannerType isEqualToString:@"page"]) {
                         
                         NSString *bannUrl = [NSString stringWithFormat:@"%@%@?user_id=%@&devie_type=%@&app_id=%@&api_key=%@&app_version=%@&size=%@&id=%@",RED_TROOPS_BASE_URL,RED_TROOPS_SHOW_ADS,[_popUpParam objectForKey:@"user_id"],[_popUpParam objectForKey:@"device_type"],[_popUpParam objectForKey:@"app_id"],[_popUpParam objectForKey:@"api_key"],[_popUpParam objectForKey:@"app_version"],[_popUpParam objectForKey:@"size"],bannerId];
@@ -98,7 +96,6 @@ extern NSString *RED_TROOPS_BASE_URL,*RED_TROOPS_GET_ADS,*RED_TROOPS_SHOW_ADS;
                     }
                     
                     
-                    NSLog(@"Url:%@",bannerUrl);
                     [webView loadRequest:[NSURLRequest requestWithURL:bannerUrl]];
                     
                     webView.delegate = self;

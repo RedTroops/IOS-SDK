@@ -35,11 +35,11 @@ extern NSString *RED_TROOPS_BASE_URL,*RED_TROOPS_START_UP,*RED_TROOPS_END_SESSIO
 
 {
     //if no internet, do nothing
-    Reachability* reachability = [Reachability reachabilityWithHostName:@"www.google.com"];
+    Reachability* reachability = [Reachability reachabilityWithHostName:@"www.developer.redtroops.com"];
     if (![reachability isReachable])
     {
         
-        NSLog(@"No internet");
+        NSLog(@"Could not connect to RedTroops Servers.");
         return false;
     }
     // 1.5     // 2.4
@@ -63,9 +63,7 @@ extern NSString *RED_TROOPS_BASE_URL,*RED_TROOPS_START_UP,*RED_TROOPS_END_SESSIO
     ForPushNotificationAndError:(NSError **)retError
                         response:(NSString **)retResponse
 {
-    
-    NSLog(@"ForPushNotificationAndError");
-
+        
     // 1.6
     NSString *post;
     
@@ -88,9 +86,6 @@ extern NSString *RED_TROOPS_BASE_URL,*RED_TROOPS_START_UP,*RED_TROOPS_END_SESSIO
 	NSError *error = nil;
 	NSData * responseData = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&response error:&error];
 	urlRequest = nil;
-	
-    NSLog(@"RT responseData:%@",responseData);
-
     
 	if(retError)
 		*retError = error;
@@ -101,13 +96,12 @@ extern NSString *RED_TROOPS_BASE_URL,*RED_TROOPS_START_UP,*RED_TROOPS_END_SESSIO
     }
 	NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
     
-    NSLog(@"Push Response:%@",responseString);
+    //NSLog(@"RedTroops Server Response:%@",responseString);
+    
     if (retResponse != NULL) {
         *retResponse = responseString;
     }
     
-    
-     NSLog(@"Response of Push Notification:%@ ",responseString);
     NSDictionary* json = [NSJSONSerialization
                           JSONObjectWithData:responseData
                           options:NSJSONReadingMutableContainers
@@ -135,8 +129,6 @@ ForEndUserSessionAndError:(NSError **)retError
             response:(NSString **)retResponse
 {
     
-    NSLog(@"ForEndUserSessionAndError");
-
      // 2.5
     NSDate *curTime = [NSDate date];
     NSDate *prevStoreCurTime = [RTCommonInfo currentTime];
@@ -171,11 +163,11 @@ ForEndUserSessionAndError:(NSError **)retError
         return false;
     }
 	NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-     NSLog(@"End User Response:%@",responseString);
+     //NSLog(@"End User Response:%@",responseString);
     if (retResponse != NULL) {
         *retResponse = responseString;
     }
-     NSLog(@"Response of End Session:%@ ",responseString);
+     //NSLog(@"Response of End Session:%@ ",responseString);
 
 	return YES;
 }
@@ -186,7 +178,8 @@ ForBannerListAndError:(NSError **)retError
 {
     
     NSString *bannUrl = [NSString stringWithFormat:@"%@%@?user_id=%@&devie_type=%@&app_id=%@&api_key=%@&app_version=%@&size=%@&device_language=en",RED_TROOPS_BASE_URL,RED_TROOPS_GET_ADS_LIST,[params objectForKey:@"user_id"],[params objectForKey:@"device_type"],[params objectForKey:@"app_id"],[params objectForKey:@"api_key"],[params objectForKey:@"app_version"],[params objectForKey:@"size"]];
-  //  NSString *bannUrl = @"http://developer.redtroops.com/ad/getList?user_id=7&device_type=ios&app_id=4&api_key=OpjFdYiCEaEUsrLL8AAzpNYx19TSAY1d&app_version=1.0&size=477x170&device_language=en";
+
+    
     NSString *urlUTF8 = [bannUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSURL *bannerUrl = [NSURL URLWithString:urlUTF8];
     NSMutableURLRequest *urlRequest = [[NSMutableURLRequest alloc] init];
@@ -213,7 +206,7 @@ ForBannerListAndError:(NSError **)retError
         *retResponse = responseString;
     }
     
-    NSLog(@"Response of BannerList:%@ ",responseString);
+    //NSLog(@"Response of BannerList:%@ ",responseString);
 
 	return YES;
 }

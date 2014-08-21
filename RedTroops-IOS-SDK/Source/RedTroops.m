@@ -18,15 +18,11 @@ id<RedTroopsDataProtocol> delegate;
 
 + (void)startSessionWithAppKey:(NSString *)apiKey AppId:(NSString*)appId andDeviceType:(NSString*)deviceType
 {
-    
-    NSLog(@"RT STARTED");
-
     // 2.2
     [RTCommonInfo setRedTroopsAppKey:apiKey];
     [RTCommonInfo setRedTroopsAppID:appId];
     [RTCommonInfo setDeviceType:deviceType];
     [RTCommonInfo setCurrentTime:[NSDate date]];
-    
 }
 
 + (void)endSession
@@ -54,12 +50,9 @@ id<RedTroopsDataProtocol> delegate;
 
 + (void)handlePushRegistration:(NSData *)devToken
 {
-    NSLog(@"handlePushRegistration");
-
     
     // 1.2
     NSMutableString *deviceID = [NSMutableString stringWithString:[devToken description]];
-    
     
     
 	//Remove <, >, and spaces

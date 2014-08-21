@@ -18,6 +18,11 @@
 
 #import <AdSupport/AdSupport.h>
 
+#define IOS_CELLULAR    @"pdp_ip0"
+#define IOS_WIFI        @"en0"
+#define IP_ADDR_IPv4    @"ipv4"
+#define IP_ADDR_IPv6    @"ipv6"
+
 static NSString *redTroopsAppID;
 static NSString *redTroopsAppKey;
 static NSString *userID;
@@ -29,33 +34,44 @@ static NSDate *currentTime;
 
 #define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 
+
 // Get IP Address
 + (NSString *)getIPAddress {
-    NSString *address = @"error";
     struct ifaddrs *interfaces = NULL;
     struct ifaddrs *temp_addr = NULL;
-    int success = 0;
+    NSString *wifiAddress = nil;
+    NSString *cellAddress = nil;
+    
     // retrieve the current interfaces - returns 0 on success
-    success = getifaddrs(&interfaces);
-    if (success == 0) {
+    if(!getifaddrs(&interfaces)) {
         // Loop through linked list of interfaces
         temp_addr = interfaces;
         while(temp_addr != NULL) {
-            if(temp_addr->ifa_addr->sa_family == AF_INET) {
-                // Check if interface is en0 which is the wifi connection on the iPhone
-                if([[NSString stringWithUTF8String:temp_addr->ifa_name] isEqualToString:@"en0"]) {
-                    // Get NSString from C String
-                    address = [NSString stringWithUTF8String:inet_ntoa(((struct sockaddr_in *)temp_addr->ifa_addr)->sin_addr)];
-                }
+            sa_family_t sa_type = temp_addr->ifa_addr->sa_family;
+            if(sa_type == AF_INET || sa_type == AF_INET6) {
+                NSString *name = [NSString stringWithUTF8String:temp_addr->ifa_name];
+                NSString *addr = [NSString stringWithUTF8String:inet_ntoa(((struct sockaddr_in *)temp_addr->ifa_addr)->sin_addr)]; // pdp_ip0
+                //NSLog(@"NAME: \"%@\" addr: %@", name, addr); // see for yourself
+                
+                if([name isEqualToString:@"en0"]) {
+                    // Interface is the wifi connection on the iPhone
+                    wifiAddress = addr;
+                } else
+                    if([name isEqualToString:@"pdp_ip0"]) {
+                        // Interface is the cell connection on the iPhone
+                        cellAddress = addr;
+                    }
             }
             temp_addr = temp_addr->ifa_next;
         }
+        // Free memory
+        freeifaddrs(interfaces);
     }
-    // Free memory
-    freeifaddrs(interfaces);
-    return address;
+    NSString *addr = wifiAddress ? wifiAddress : cellAddress;
     
+    return addr;
 }
+
 + (NSString *)uniqueGlobalDeviceIdentifier
 {
 	// IMPORTANT: iOS 6.0 has a bug when advertisingIdentifier or identifierForVendor occasionally might be empty! We have to fallback to hashed mac address here.
@@ -226,7 +242,7 @@ static NSDate *currentTime;
 + (NSString*)deviceToken
 {
     
-    NSLog(@"deviceToken: %@", [[NSUserDefaults standardUserDefaults] valueForKey:@"RedTroopsDeviceToken"]);
+    //NSLog(@"deviceToken: %@", [[NSUserDefaults standardUserDefaults] valueForKey:@"RedTroopsDeviceToken"]);
 
     return [[NSUserDefaults standardUserDefaults] valueForKey:@"RedTroopsDeviceToken"];
 }
@@ -234,8 +250,6 @@ static NSDate *currentTime;
 + (void)setDeviceToken:(NSString*)deviceToken
 {
     
-    NSLog(@"deviceToken2: %@", [[NSUserDefaults standardUserDefaults] valueForKey:@"RedTroopsDeviceToken"]);
-
     [[NSUserDefaults standardUserDefaults] setValue:deviceToken
                                              forKey:@"RedTroopsDeviceToken"];
     [[NSUserDefaults standardUserDefaults] synchronize];
@@ -268,10 +282,6 @@ static NSDate *currentTime;
 
 + (void)fillCustomInfo:(NSMutableDictionary*)dictionary
 {
-    
-    NSLog(@"fillCustomInfo");
-
-    
     if ([RTCommonInfo deviceToken])
     {
         [dictionary setObject:[RTCommonInfo deviceToken] forKey:@"device_token"];
@@ -295,6 +305,7 @@ static NSDate *currentTime;
     [dictionary setObject:[RTCommonInfo appDisplayName] forKey:@"dispName"];
     [dictionary setObject:[RTCommonInfo appVersion] forKey:@"app_version"];
     [dictionary setObject:[RTCommonInfo getIPAddress] forKey:@"ip_address"];
+
     [dictionary setObject:[RTCommonInfo uniqueGlobalDeviceIdentifier] forKey:@"uniqueId"];
     [dictionary setObject:[RTCommonInfo uniqueGlobalDeviceIdentifier] forKey:@"uid"]; // added by me
     [dictionary setObject:[RTCommonInfo getBannerSize] forKey:@"size"];

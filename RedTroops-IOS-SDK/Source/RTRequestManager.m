@@ -63,6 +63,9 @@ extern NSString *RED_TROOPS_BASE_URL,*RED_TROOPS_START_UP,*RED_TROOPS_END_SESSIO
     ForPushNotificationAndError:(NSError **)retError
                         response:(NSString **)retResponse
 {
+    
+    NSLog(@"ForPushNotificationAndError");
+
     // 1.6
     NSString *post;
     
@@ -86,6 +89,9 @@ extern NSString *RED_TROOPS_BASE_URL,*RED_TROOPS_START_UP,*RED_TROOPS_END_SESSIO
 	NSData * responseData = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&response error:&error];
 	urlRequest = nil;
 	
+    NSLog(@"RT responseData:%@",responseData);
+
+    
 	if(retError)
 		*retError = error;
 	
@@ -128,6 +134,9 @@ extern NSString *RED_TROOPS_BASE_URL,*RED_TROOPS_START_UP,*RED_TROOPS_END_SESSIO
 ForEndUserSessionAndError:(NSError **)retError
             response:(NSString **)retResponse
 {
+    
+    NSLog(@"ForEndUserSessionAndError");
+
      // 2.5
     NSDate *curTime = [NSDate date];
     NSDate *prevStoreCurTime = [RTCommonInfo currentTime];
@@ -162,7 +171,7 @@ ForEndUserSessionAndError:(NSError **)retError
         return false;
     }
 	NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-     NSLog(@"Ens User Response:%@",responseString);
+     NSLog(@"End User Response:%@",responseString);
     if (retResponse != NULL) {
         *retResponse = responseString;
     }

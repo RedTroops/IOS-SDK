@@ -61,6 +61,10 @@ return YES;
 // change here, just add Api_Key and Id here
     [RedTroops startSessionWithAppKey:@"<APP-SECRET-KEY>" AppId:@"<APP-ID>" andDeviceType:@"<DEVICE-TYPE>"];
     
+    if([[NSUserDefaults standardUserDefaults] valueForKey:@"RedTroopsDeviceToken"] != nil){
+        [RedTroops showHTML5ImagePopup:self.viewController];
+    }
+
       return YES;
 }
 ```

@@ -27,11 +27,11 @@ extern NSString *RED_TROOPS_BASE_URL,*RED_TROOPS_GET_ADS,*RED_TROOPS_SHOW_ADS;
     [super layoutSubviews];
     
     //if no internet, do nothing
-    Reachability* reachability = [Reachability reachabilityWithHostName:@"www.google.com"];
+    Reachability* reachability = [Reachability reachabilityWithHostName:@"developer.redtroops.com"];
     if (![reachability isReachable])
     {
        
-        NSLog(@"No internet");
+        NSLog(@"No access to developer.redtroops.com at this moment.");
         [self removeFromSuperview];
         return;
     }
@@ -68,7 +68,7 @@ extern NSString *RED_TROOPS_BASE_URL,*RED_TROOPS_GET_ADS,*RED_TROOPS_SHOW_ADS;
                               error:&error];
         
         NSLog(@"HTML Popup Response: %@",json);
-        
+
         if ((int)[[json valueForKey:@"success"] integerValue] == 1) {
             
             if ([json objectForKey:@"data"] && [[json objectForKey:@"data"] objectForKey:@"banner"]) {
@@ -137,6 +137,10 @@ extern NSString *RED_TROOPS_BASE_URL,*RED_TROOPS_GET_ADS,*RED_TROOPS_SHOW_ADS;
                 
             }
             
+            
+        
+        }else{
+            NSLog(@"No Banner");            
             
         }
     }
@@ -238,6 +242,7 @@ extern NSString *RED_TROOPS_BASE_URL,*RED_TROOPS_GET_ADS,*RED_TROOPS_SHOW_ADS;
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
+    [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.querySelector('meta[name=viewport]').setAttribute('content', 'width=%d;', false); ", (int)webView.frame.size.width]];
     [indicatorView stopAnimating];
 }
 

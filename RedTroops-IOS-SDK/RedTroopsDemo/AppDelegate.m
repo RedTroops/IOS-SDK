@@ -44,6 +44,10 @@
         [RedTroops processRemoteNotification:userInfo];
     }
     
+    if([[NSUserDefaults standardUserDefaults] valueForKey:@"RedTroopsDeviceToken"] != nil){
+        [RedTroops showHTML5ImagePopup:self.viewController];
+    }
+    
     return YES;
 }
 
@@ -77,5 +81,6 @@
 {
 
 }
+
 
 @end

@@ -225,11 +225,17 @@ static NSDate *currentTime;
 
 + (NSString*)deviceToken
 {
+    
+    NSLog(@"deviceToken: %@", [[NSUserDefaults standardUserDefaults] valueForKey:@"RedTroopsDeviceToken"]);
+
     return [[NSUserDefaults standardUserDefaults] valueForKey:@"RedTroopsDeviceToken"];
 }
 
 + (void)setDeviceToken:(NSString*)deviceToken
 {
+    
+    NSLog(@"deviceToken2: %@", [[NSUserDefaults standardUserDefaults] valueForKey:@"RedTroopsDeviceToken"]);
+
     [[NSUserDefaults standardUserDefaults] setValue:deviceToken
                                              forKey:@"RedTroopsDeviceToken"];
     [[NSUserDefaults standardUserDefaults] synchronize];
@@ -262,6 +268,9 @@ static NSDate *currentTime;
 
 + (void)fillCustomInfo:(NSMutableDictionary*)dictionary
 {
+    
+    NSLog(@"fillCustomInfo");
+
     
     if ([RTCommonInfo deviceToken])
     {

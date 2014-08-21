@@ -23,7 +23,6 @@
     if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
-    
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -32,7 +31,7 @@
 }
 - (IBAction)registerPushNotification:(id)sender
 {
-    // 1.1
+   // 1.1
   //  [RedTroops handlePushRegistration:[@":<Enter-Your-Device-Token-Here-For-Testing>" dataUsingEncoding:NSUTF8StringEncoding]];
 }
 

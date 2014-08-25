@@ -37,7 +37,7 @@ Follow the steps below to get your RedTroops SDK 1.0 running:
 </ul>
 
 
-4) To allow Push Notification in your app, in AppDelegate.m, add following:
+4) To verify your App and to allow Push Notification in your app, in `AppDelegate.m`, add the following:
 
 ```objective-c
 (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -49,16 +49,16 @@ Follow the steps below to get your RedTroops SDK 1.0 running:
         [self application:application didFinishLaunchingWithOptions:userInfo];
     }
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
-    application.applicationIconBadgeNumber = 0;
-    
-    // change here, just add Api_Key and Id here
+
+	//Change here, just add Api_Key and Id here
     [RedTroops startSessionWithAppKey:@"<APP-SECRET-KEY>" AppId:@"<APP-ID>" andDeviceType:@"<DEVICE-TYPE>"];
-    
+
+	//[RedTroops startSessionWithAppKey:@"0d124d6d803d3c52c23557ecac595074" AppId:@"2" andDeviceType:@"ios"];
+
     if([[NSUserDefaults standardUserDefaults] valueForKey:@"RedTroopsDeviceToken"] != nil){
         [RedTroops showHTML5ImagePopup:self.viewController];
     }
-
-
+    
 return YES;
 }
 ```

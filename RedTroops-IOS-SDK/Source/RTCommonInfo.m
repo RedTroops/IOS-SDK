@@ -78,12 +78,15 @@ static NSDate *currentTime;
 	if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"6.1")) {
 		// >= iOS6 return advertisingIdentifier or identifierForVendor
 		if ([NSUUID class]) {
-			if ([ASIdentifierManager class]) {
+			
+            /*
+             REMOVED FOR APPLE WITH AdSupport.framework
+             if ([ASIdentifierManager class]) {
 				NSString *uuidString = [[ASIdentifierManager sharedManager].advertisingIdentifier UUIDString];
 				if (uuidString) {
 					return uuidString;
 				}
-			}
+			}*/
 			
 			if ([[UIDevice currentDevice] respondsToSelector:@selector(identifierForVendor)]) {
 				NSString *uuidString = [[UIDevice currentDevice].identifierForVendor UUIDString];

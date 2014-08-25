@@ -244,7 +244,10 @@ id<RedTroopsDataProtocol> delegate;
         NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
         [RTCommonInfo fillCustomInfo:params];
         
+        //NSLog(@"showHTML5ImagePopup WITH ID:: %@", [params valueForKey:@"ad_id"]);
+
         //replace ad id
+        //[params setValue:adId forKey:@"ad_id"];
         [params setObject:adId forKey:@"ad_id"];
         
         // 3.3

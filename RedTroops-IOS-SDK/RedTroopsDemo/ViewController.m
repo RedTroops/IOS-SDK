@@ -27,8 +27,8 @@
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    //[RedTroops showHTML5ImagePopup:self];
 }
+
 - (IBAction)registerPushNotification:(id)sender
 {
    // 1.1

@@ -27,7 +27,6 @@
 		07AA62D017C3FFD8000E8E89 /* RTCommonInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 07AA62CF17C3FFD8000E8E89 /* RTCommonInfo.m */; };
 		07AA62D317C403C6000E8E89 /* RTRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 07AA62D217C403C6000E8E89 /* RTRequestManager.m */; };
 		07AA62E417C4097D000E8E89 /* RTNagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07AA62E317C4097D000E8E89 /* RTNagView.m */; };
-		07AA62E617C40E12000E8E89 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07AA62E517C40E12000E8E89 /* AdSupport.framework */; };
 		07AA62E817C40E18000E8E89 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07AA62E717C40E18000E8E89 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
@@ -81,7 +80,6 @@
 			files = (
 				0095F4C418A1FDB300098FC9 /* SystemConfiguration.framework in Frameworks */,
 				07AA62E817C40E18000E8E89 /* QuartzCore.framework in Frameworks */,
-				07AA62E617C40E12000E8E89 /* AdSupport.framework in Frameworks */,
 				0760419917C3E96F00865253 /* UIKit.framework in Frameworks */,
 				0760419B17C3E96F00865253 /* Foundation.framework in Frameworks */,
 				0760419D17C3E96F00865253 /* CoreGraphics.framework in Frameworks */,

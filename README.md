@@ -31,7 +31,6 @@ Follow the steps below to get your RedTroops SDK 1.0 running:
 3) Add following framework:
 
 <ul>
-<li>AdSupport.framework</li>
 <li>SystemConfiguration.framework</li>
 <li>QuartzCore.framework</li>
 <li>CoreGraphics.framework</li>
@@ -51,25 +50,20 @@ Follow the steps below to get your RedTroops SDK 1.0 running:
     }
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
     application.applicationIconBadgeNumber = 0;
-return YES;
-}
-```
-5) To initialize SDK, in your AppDelegate.m class, add following lines in:
-```objective-c
-(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-// change here, just add Api_Key and Id here
+    
+    // change here, just add Api_Key and Id here
     [RedTroops startSessionWithAppKey:@"<APP-SECRET-KEY>" AppId:@"<APP-ID>" andDeviceType:@"<DEVICE-TYPE>"];
     
     if([[NSUserDefaults standardUserDefaults] valueForKey:@"RedTroopsDeviceToken"] != nil){
         [RedTroops showHTML5ImagePopup:self.viewController];
     }
 
-      return YES;
+
+return YES;
 }
 ```
 
-6) Whenever you want to show an HTML5/Image popup, call:
+5) Whenever you want to show an HTML5/Image popup, call:
 
 ```objective-c
 [RedTroops showHTML5ImagePopup:self]
@@ -77,7 +71,7 @@ return YES;
 
 where parameter is of  (UIViewController*) representing current class
     
-7) Whenever you want to show the more page, call:
+6) Whenever you want to show the more page, call:
 
 ```objective-c
 [RedTroops showBannerListWithView:self]
@@ -85,7 +79,7 @@ where parameter is of  (UIViewController*) representing current class
 
 where parameter is of  `(UIViewController*)` representing current class
 
-8) To end your session, add the following to your last `AppDelegate.m`:
+7) To end your session, add the following to your last `AppDelegate.m`:
 
 ```objective-c
 (void)applicationDidEnterBackground:(UIApplication *)application
@@ -96,7 +90,7 @@ where parameter is of  `(UIViewController*)` representing current class
 
 This should only be called once after each app run when the user is no longer using the app.
 
-9) Optional:  If your app in foreground, and you want to view `Push Notification`, than add following in `AppDelegate.m` and **Push Notification** can be viewed in `alertView`:
+8) Optional:  If your app in foreground, and you want to view `Push Notification`, than add following in `AppDelegate.m` and **Push Notification** can be viewed in `alertView`:
 
 ```objective-c
 (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo

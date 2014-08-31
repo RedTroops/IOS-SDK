@@ -307,7 +307,7 @@ static NSDate *currentTime;
     [dictionary setObject:[RTCommonInfo iOSVersion] forKey:@"iOSVersion"];
     [dictionary setObject:[RTCommonInfo appDisplayName] forKey:@"dispName"];
     [dictionary setObject:[RTCommonInfo appVersion] forKey:@"app_version"];
-    [dictionary setObject:[RTCommonInfo getIPAddress] forKey:@"ip_address"];
+    //[dictionary setObject:[RTCommonInfo getIPAddress] forKey:@"ip_address"];
 
     [dictionary setObject:[RTCommonInfo uniqueGlobalDeviceIdentifier] forKey:@"uniqueId"];
     [dictionary setObject:[RTCommonInfo uniqueGlobalDeviceIdentifier] forKey:@"uid"]; // added by me

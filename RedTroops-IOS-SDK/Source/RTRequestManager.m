@@ -67,7 +67,7 @@ extern NSString *RED_TROOPS_BASE_URL,*RED_TROOPS_START_UP,*RED_TROOPS_END_SESSIO
     // 1.6
     NSString *post;
     
-    post = [NSString stringWithFormat:@"device_type=%@&app_id=%@&api_key=%@&uid=%@&device_token=%@&app_version=%@&ip=%@&os_version=%@&device_language=%@",[params objectForKey:@"device_type"],[params objectForKey:@"app_id"],[params objectForKey:@"api_key"],[params objectForKey:@"uid"],[params objectForKey:@"device_token"],[params objectForKey:@"app_version"],[params objectForKey:@"ip_address"],[params objectForKey:@"iOSVersion"],@"en"];
+    post = [NSString stringWithFormat:@"device_type=%@&app_id=%@&api_key=%@&uid=%@&device_token=%@&app_version=%@&os_version=%@&device_language=%@",[params objectForKey:@"device_type"],[params objectForKey:@"app_id"],[params objectForKey:@"api_key"],[params objectForKey:@"uid"],[params objectForKey:@"device_token"],[params objectForKey:@"app_version"],[params objectForKey:@"iOSVersion"],@"en"];
     
     NSData *postData = [post dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
     

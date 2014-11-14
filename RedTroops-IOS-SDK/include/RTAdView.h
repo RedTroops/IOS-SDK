@@ -1,0 +1,24 @@
+//
+//  RTAdView.h
+//  iOSSDK
+//
+//  Created by Rami Arafat
+//  Copyright (c) 2014 RedTroops. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+#import "RTAdSize.h"
+#import "RTAdRequest.h"
+
+@interface RTAdView : UIView
+
+-(id)initWithSize:(RTAdType)adType;
+
+@property (nonatomic, assign) RTAdType ADType;
+@property (nonatomic, weak) UIViewController *rootViewController;
+@property (nonatomic, assign) BOOL hasAd;
+@property (nonatomic, strong) NSNumber *adId;
+
+-(void)loadRequest:(RTAdRequest *)request;
+
+@end

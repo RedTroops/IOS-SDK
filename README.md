@@ -1,15 +1,15 @@
 <p align="center">
-<img src="http://www.redtroops.com/images/RedTroopsLogo.png" alt="RedTroops" width="150">
+<img src="http://redtroops.com/images/logo.png" alt="RedTroops">
 </p>
 
 
-#RedTroops SDK 1.0 for IOS
+#RedTroops SDK 2.0 for IOS
 
 Requirements: **IOS 5.0 +**
 
 ###Getting Started
 
-RedTroops SDK 1.0 currently features:
+RedTroops SDK 2.0 currently features:
 
 **Push Notifications.**
 
@@ -17,16 +17,16 @@ RedTroops SDK 1.0 currently features:
 
 **HTML5/Image Popups.**
 
-**List of banners.**
 
-**Setting Up RedTroops SDK 1.0 In Your Project**
 
-Follow the steps below to get your RedTroops SDK 1.0 running:
+**Setting Up RedTroops SDK 2.0 In Your Project**
+
+Follow the steps below to get your RedTroops SDK 2.0 running:
 
 
 1) Download the SDK from RedTroops' website.
 
-2) Drag & Drop folder to your project.
+2) Drag & Drop downloaded files (RedTroops.a + include) to your project.
 
 3) Add following framework:
 
@@ -34,69 +34,125 @@ Follow the steps below to get your RedTroops SDK 1.0 running:
 <li>SystemConfiguration.framework</li>
 <li>QuartzCore.framework</li>
 <li>CoreGraphics.framework</li>
+<li>Security.framework</li>
+<li>MobileCoreServices.framework</li>
 </ul>
 
 
-4) To verify your App and to allow Push Notification in your app, in `AppDelegate.m`, add the following:
+###Initial Setup
+
+1) In your app delegate (AppDelegate.m), import RTSessionManager
 
 ```objective-c
-(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    //notification
-    NSDictionary * userInfo = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+    #import "RTSessionManager.h"
+```
+
+
+2) In your app delegate (AppDelegate.m), find the method
+
+```objective-c
+- (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:
+(NSDictionary*)launchOptions
+```
+
+and add the following line of code
+```objective-c
+    [[RTSessionManager defaultManager]startSessionWithAPIKey:@“Your API KEY”];
+```
+* Your API Key: You can find it in RedTroops administration panel.
+  http://developer.dev.redtroops.com/app/index
+
+
+3) In your app delegate (AppDelegate.m), find the method
+
+```objective-c
+    - (void)applicationWillTerminate:(UIApplication *)application
+```
+
+and add the following line of code
+```objective-c
+    [[RTSessionManager defaultManager] endSession];
+ ```
+
+---------------
+
+###Showing Interstitial ad
+
+1) Import the following file to your view controller
+```objective-c
+    #import "RTAdView.h"
+```
+
+2) Add the following line to your view controller
+```objective-c
+    RTAdView *adView = [[RTAdView alloc] initWithSize:RTAdPopUp];
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenWidth = screenRect.size.width;
+    CGFloat screenHeight = screenRect.size.height;
+    adView.frame = CGRectMake(0,0,screenWidth,screenHeight);
+    adView.rootViewController = self;
+    [adView loadRequest:[RTAdRequest request]];
+    [self.view addSubview:adView];
+    [self.view bringSubviewToFront:adView];
+```
+
+---------------
+
+###Push Notifications
+
+1) Import the following file to your app delegate AppDelegate.m
+```objective-c
+    #import “RTNotificationManager.h"
+```
+
+2) In your app delegate (AppDelegate.m), find the method
+```objective-c
+    - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+```
+
+and add the following line of code
+```objective-c
+    if ([application respondsToSelector:@selector(isRegisteredForRemoteNotifications)])
+      {
+	//iOS 8
+	[application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:
+	(UIUserNotificationTypeSound | UIUserNotificationTypeAlert |UIUserNotificationTypeBadge) categories:nil]];
+        
+        [application registerForRemoteNotifications];
+        
+      } else {
+ 
+ 	//iOS < 8
+	[application registerForRemoteNotificationTypes:
+	(UIUserNotificationTypeBadge | UIUserNotificationTypeSound |UIUserNotificationTypeAlert)];
+      }
     
-    if ( userInfo != nil ) {
-        [self application:application didFinishLaunchingWithOptions:userInfo];
-    }
-    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
-
-	//Change here, just add Api_Key and Id here
-    [RedTroops startSessionWithAppKey:@"<APP-SECRET-KEY>" AppId:@"<APP-ID>" andDeviceType:@"<DEVICE-TYPE>"];
-
-	//[RedTroops startSessionWithAppKey:@"0d124d6d803d3c52c23557ecac595074" AppId:@"2" andDeviceType:@"ios"];
-
-    if([[NSUserDefaults standardUserDefaults] valueForKey:@"RedTroopsDeviceToken"] != nil){
-        [RedTroops showHTML5ImagePopup:self.viewController];
-    }
     
-return YES;
-}
+    if ([launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey])
+     {
+        NSDictionary *payload = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+        [[RTNotificationManager defaultManager]startProcessingNotificationPayload:payload];
+     }
+```
+*Note: This code snippet handles notifications for iOS 8 and earlier versions. if you are targeting iOS 8 only, you can add the first part of the first if statement.
+
+
+3) In your app delegate (AppDelegate.m), find the method
+```objective-c
+    -(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
+```
+and add the following line of code
+```objective-c
+    [[RTSessionManager defaultManager] registerDeviceToken:deviceToken];
 ```
 
-5) Whenever you want to show an HTML5/Image popup, call:
-
+4) In your app delegate (AppDelegate.m), find the method
 ```objective-c
-[RedTroops showHTML5ImagePopup:self]
+    -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 ```
-
-where parameter is of  (UIViewController*) representing current class
-    
-6) Whenever you want to show the more page, call:
-
+and add the following line of code
 ```objective-c
-[RedTroops showBannerListWithView:self]
-```
-
-where parameter is of  `(UIViewController*)` representing current class
-
-7) To end your session, add the following to your last `AppDelegate.m`:
-
-```objective-c
-(void)applicationDidEnterBackground:(UIApplication *)application
-{
-    [RedTroops endSession];
-}
-```
-
-This should only be called once after each app run when the user is no longer using the app.
-
-8) Optional:  If your app in foreground, and you want to view `Push Notification`, than add following in `AppDelegate.m` and **Push Notification** can be viewed in `alertView`:
-
-```objective-c
-(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
-{
-    [RedTroops processRemoteNotification:userInfo];
-}
+    [[RTNotificationManager defaultManager]startProcessingNotificationPayload:userInfo];
 ```
 
 **If you need any help or for more information, please visit:**  <a href="http://docs.redtroops.com" class="btn">RedTroops Docs</a>

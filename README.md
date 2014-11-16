@@ -1,5 +1,5 @@
 <p align="center">
-<img src="http://redtroops.com/images/logo.png" alt="RedTroops">
+<img src="http://redtroops.com/images/logo_large.png" alt="RedTroops" width="150px">
 </p>
 
 

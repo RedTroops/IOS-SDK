@@ -100,6 +100,8 @@ and add the following line of code
 
 ###Push Notifications
 
+** You can find the guide for generating certificates and integrating them with RedTroops on this [link](https://github.com/RedTroops/IOS-SDK/wiki/iOS-Push-Notification-Integration)
+
 1) Import the following file to your app delegate AppDelegate.m
 ```objective-c
     #import “RTNotificationManager.h"

@@ -57,7 +57,7 @@ Follow the steps below to get your RedTroops SDK 2.0 running:
 
 and add the following line of code
 ```objective-c
-    [[RTSessionManager defaultManager]startSessionWithAPIKey:@“Your API KEY”];
+    [[RTSessionManager defaultManager]startSessionWithAPIKey:@"Your API KEY"];
 ```
 * Your API Key: You can find it in RedTroops administration panel.
   http://developer.dev.redtroops.com/app/index

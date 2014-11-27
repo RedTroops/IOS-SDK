@@ -2,7 +2,7 @@
 //  RTAdRequest.h
 //  iOSSDK
 //
-//  Created by Rami Arafat
+//  Created by RedTroops
 //  Copyright (c) 2014 RedTroops. All rights reserved.
 //
 

@@ -2,7 +2,7 @@
 //  RTAdSize.h
 //  iOSSDK
 //
-//  Created by Rami Arafat
+//  Created by RedTroops
 //  Copyright (c) 2014 RedTroops. All rights reserved.
 //
 
@@ -18,12 +18,12 @@ typedef struct RTAdType {
 
 
 
-//extern RTAdType const RTAdBannerTop;
-//extern RTAdType const RTAdBannerBottom;
+extern RTAdType const RTAdBannerTop;
+extern RTAdType const RTAdBannerBottom;
 extern RTAdType const RTAdPopUp;
-//extern RTAdType const RTAdNative1to1;
-//extern RTAdType const RTAdNative1to6;
-//extern RTAdType const RTAdNative6to1;
+extern RTAdType const RTAdNative1to1;
+extern RTAdType const RTAdNative1to6;
+extern RTAdType const RTAdNative6to1;
 
 
 

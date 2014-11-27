@@ -2,7 +2,7 @@
 //  RTNotificationManager.h
 //  iOSSDK
 //
-//  Created by Rami Arafat on 10/2/14.
+//  Created by RedTroops
 //  Copyright (c) 2014 RedTroops. All rights reserved.
 //
 

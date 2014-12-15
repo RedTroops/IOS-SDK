@@ -10,7 +10,6 @@
 
 
 typedef struct RTAdType {
-    //CGSize size;
     int id;
     __unsafe_unretained NSString *type;
 } RTAdType;

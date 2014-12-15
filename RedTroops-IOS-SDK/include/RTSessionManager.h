@@ -15,7 +15,7 @@
 @property (nonatomic, strong) NSString *sessionId;
 
 -(void)startSessionWithAPIKey:(NSString *)APIKey;
--(void)endSession;
 -(void)registerDeviceToken:(NSData *)deviceToken;
+-(void)endTheSession;
 
 @end

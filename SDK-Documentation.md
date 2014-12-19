@@ -18,6 +18,7 @@ RedTroops SDK 2.0 currently features:
 **3 types of (HTML5/Image) ads.**
 
 
+---------------
 
 **Setting Up RedTroops SDK 2.0 In Your Project**
 
@@ -323,7 +324,7 @@ and add the following line of code
 ```objective-c
   [UIApplication sharedApplication].applicationIconBadgeNumber = [[[userInfo objectForKey:@"aps"] objectForKey: @"badgecount"] intValue];
   
-    [[RTNotificationManager defaultManager]startProcessingNotificationPayload:userInfo];
+  [[RTNotificationManager defaultManager]startProcessingNotificationPayload:userInfo];
 ```
 
 5) In your app delegate (AppDelegate.m), find the method

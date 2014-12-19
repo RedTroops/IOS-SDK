@@ -15,8 +15,6 @@ typedef struct RTAdType {
 } RTAdType;
 
 
-
-
 extern RTAdType const RTAdBannerTop;
 extern RTAdType const RTAdBannerBottom;
 extern RTAdType const RTAdPopUp;

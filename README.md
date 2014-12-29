@@ -119,7 +119,7 @@ and add the following line of code
 1. Import the following file to your view controller
 
 ```objective-c
-#import “RTAdView.h"
+#import "RTAdView.h"
 ```
 
 2. Add the following line to your view controller
@@ -274,7 +274,7 @@ and add the following line of code
 
 1) Import the following file to your app delegate AppDelegate.m
 ```objective-c
-    #import “RTNotificationManager.h"
+    #import "RTNotificationManager.h"
 ```
 
 2) In your app delegate (AppDelegate.m), find the method

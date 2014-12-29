@@ -29,7 +29,7 @@ RedTroops SDK 2.0 currently features:
 Follow the steps below to get your RedTroops SDK 2.0 running:
 
 
-1) Download the SDK from RedTroops' website.
+1) Download the SDK from here.
 
 2) Drag & Drop downloaded files (RedTroops.a + include) to your project.
 

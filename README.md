@@ -121,16 +121,26 @@ and add the following line of code
 ```objective-c
 #import "RTAdView.h"
 ```
-
-2. Add the following line to your view controller
+2. In the ViewController.m Interface 
 
 ```objective-c
- RTAdView *adView = [[RTAdView alloc] initWithSize:RTAdBannerTop];
- adView.frame = CGRectMake(0,0,320,75);
- [self.view addSubview:adView];
- [self.view bringSubviewToFront:adView];
- adView.rootViewController = self;
- [adView loadRequest:[RTAdRequest request]];
+@interface ViewController 
+
+@end
+```
+Add the following property
+
+```objective-c
+@property (nonatomic,strong) RTAdView *adView;
+```
+
+3. Add the following line to your view controller to show the ad
+
+```objective-c
+ self.adView = [[RTAdView alloc] initWithSize:RTAdBannerTop];
+ [self.view addSubview:self.adView];
+ [self.view bringSubviewToFront:self.adView];
+ [self.adView loadRequest:[RTAdRequest request]];
 ```
 
 #####B. Bottom Screen Banner
@@ -138,22 +148,38 @@ and add the following line of code
 1. Import the following file to your view controller
 
 ```objective-c
- #import "RTAdView.h"
-``` 
- 
-2. Add the following line to your view controller
+#import "RTAdView.h"
+```
+2. In the ViewController.m Interface 
 
 ```objective-c
-  RTAdView *adView = [[RTAdView alloc] initWithSize:RTAdBannerBottom];
-  adView.frame = CGRectMake(0,0,320,75);
-  [self.view addSubview:adView];
-  [self.view bringSubviewToFront:adView];
-  adView.rootViewController = self;
-  [adView loadRequest:[RTAdRequest request]];
+@interface ViewController 
+
+@end
+```
+Add the following property
+
+```objective-c
+@property (nonatomic,strong) RTAdView *adView;
 ```
 
+3. Add the following line to your view controller to show the ad
 
-######Note: Banner’s size and position are fixed, changing any will result in removing them from the view.
+```objective-c
+ self.adView = [[RTAdView alloc] initWithSize:RTAdBannerBottom];
+ [self.view addSubview:self.adView];
+ [self.view bringSubviewToFront:self.adView];
+ [self.adView loadRequest:[RTAdRequest request]];
+```
+
+###### Important notes
+
+Note 1: Banner’s size and position are fixed, changing any will result in removing them from the view.
+Note 2: Hidding the adView will result in deleting it. Instead use the following method
+
+```objective-c
+ [self.adView removeTheAd];
+```
 ---------------
 
 ###2. Interstitial 
@@ -192,16 +218,28 @@ and add the following line of code
 1. Import the following file to your view controller
 
 ```objective-c
-	#import "RTAdView.h"
-```	
+#import "RTAdView.h"
+```
+2. In the ViewController.m Interface 
 
-2. Add the following line to your view controller
+```objective-c
+@interface ViewController 
+
+@end
+```
+Add the following property
+
+```objective-c
+@property (nonatomic,strong) RTAdView *adView;
+```
+
+3. Add the following line to your view controller to show the ad
+
 
 ```objective-c
     RTAdView *adView = [[RTAdView alloc] initWithSize:RTAdNative1to1];
     CGRect frame = self.view.frame;;
     adView.frame = CGRectMake(100,400,300,300);
-    adView.rootViewController = self;
     [adView loadRequest:[RTAdRequest request]];
     [self.view addSubview:adView];
     [self.view bringSubviewToFront:adView];
@@ -214,17 +252,28 @@ and add the following line of code
 1. Import the following file to your view controller
 
 ```objective-c
-	#import "RTAdView.h"
-```			
-			
+#import "RTAdView.h"
+```
+2. In the ViewController.m Interface 
 
-2. Add the following line to your view controller
+```objective-c
+@interface ViewController 
+
+@end
+```
+Add the following property
+
+```objective-c
+@property (nonatomic,strong) RTAdView *adView;
+```
+
+3. Add the following line to your view controller to show the ad
+
 
 ```objective-c
     RTAdView *adView = [[RTAdView alloc] initWithSize:RTAdNative6to1];
     CGRect frame = self.view.frame;;
     adView.frame = CGRectMake(100,400,300,50);
-    adView.rootViewController = self;
     [adView loadRequest:[RTAdRequest request]];
     [self.view addSubview:adView];
     [self.view bringSubviewToFront:adView];
@@ -239,16 +288,28 @@ and add the following line of code
 1. Import the following file to your view controller
 
 ```objective-c
-	#import "RTAdView.h"
-```	
+#import "RTAdView.h"
+```
+2. In the ViewController.m Interface 
 
-2. Add the following lines to your view controller
+```objective-c
+@interface ViewController 
+
+@end
+```
+Add the following property
+
+```objective-c
+@property (nonatomic,strong) RTAdView *adView;
+```
+
+3. Add the following line to your view controller to show the ad
+
 
 ```objective-c
     RTAdView *adView = [[RTAdView alloc] initWithSize:RTAdNative1to6];
     CGRect frame = self.view.frame;;
     adView.frame = CGRectMake(100,400,50,300);
-    adView.rootViewController = self;
     [adView loadRequest:[RTAdRequest request]];
     [self.view addSubview:adView];
     [self.view bringSubviewToFront:adView];
@@ -257,15 +318,21 @@ and add the following line of code
 
 ######Third line of code means that the ad will be on position (x=100,y=400) with size (width=50, height=300).
 
-######Note: 
+######Important Notes: 
 
-######Native ads can be placed anywhere on the screen.
-######Sizes are limited to:
+Note 1.Native ads can be placed anywhere INSIDE the screen. Placing the ad outside the boarder of the screen will result in deleteing the ad.
+
+Note 2.Sizes are limited to:
 
 ######1:1 —> Minimum 50x50 and Maximum 300x300
 ######6:1 —> Minimum 300x50 and Maximum 3750x625
 ######1:6 —> Minimum 50x300 and Maximum 625x3750
 
+Note 3: Hidding the adView will result in deleting it. Instead use the following method
+
+```objective-c
+ [self.adView removeTheAd];
+```
 ---------------
 
 ###Push Notifications

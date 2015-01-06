@@ -247,7 +247,7 @@ Add the following property
     [self.view bringSubviewToFront:self.adView];
 ```
 
-######Third line of code means that the ad will be on position (x=100,y=400) with size (width=300, height=300). 
+######Second line of code means that the ad will be on position (x=100,y=400) with size (width=300, height=300). 
 
 ####B) 6 : 1
 
@@ -281,7 +281,7 @@ Add the following property
     [self.view bringSubviewToFront:self.adView];
 ```
 
-######Third line of code means that the ad will be on position (x=100,y=400) with size (width=300, height=50).
+######Second line of code means that the ad will be on position (x=100,y=400) with size (width=300, height=50).
 
 
 
@@ -318,7 +318,7 @@ Add the following property
 ```
 
 
-######Third line of code means that the ad will be on position (x=100,y=400) with size (width=50, height=300).
+######Second line of code means that the ad will be on position (x=100,y=400) with size (width=50, height=300).
 
 ######Important Notes: 
 

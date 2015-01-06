@@ -124,7 +124,7 @@ and add the following line of code
 2. In the ViewController.m Interface 
 
 ```objective-c
-@interface ViewController 
+@interface ViewController ()
 
 @end
 ```
@@ -137,10 +137,11 @@ Add the following property
 3. Add the following line to your view controller to show the ad
 
 ```objective-c
- self.adView = [[RTAdView alloc] initWithSize:RTAdBannerTop];
- [self.view addSubview:self.adView];
- [self.view bringSubviewToFront:self.adView];
- [self.adView loadRequest:[RTAdRequest request]];
+    self.adView = [[RTAdView alloc] initWithSize:RTAdBannerTop];
+    [self.adView prepareAd];
+    [self.view addSubview:self.adView];
+    [self.view bringSubviewToFront:self.adView];
+    [self.adView loadRequest:[RTAdRequest request]];
 ```
 
 #####B. Bottom Screen Banner
@@ -153,7 +154,7 @@ Add the following property
 2. In the ViewController.m Interface 
 
 ```objective-c
-@interface ViewController 
+@interface ViewController ()
 
 @end
 ```
@@ -166,16 +167,18 @@ Add the following property
 3. Add the following line to your view controller to show the ad
 
 ```objective-c
- self.adView = [[RTAdView alloc] initWithSize:RTAdBannerBottom];
- [self.view addSubview:self.adView];
- [self.view bringSubviewToFront:self.adView];
- [self.adView loadRequest:[RTAdRequest request]];
+    self.adView = [[RTAdView alloc] initWithSize:RTAdBannerBottom];
+    [self.adView prepareAd];
+    [self.view addSubview:self.adView];
+    [self.view bringSubviewToFront:self.adView];
+    [self.adView loadRequest:[RTAdRequest request]];
 ```
 
 ###### Important notes
 
 Note 1: Banner’s size and position are fixed, changing any will result in removing them from the view.
-Note 2: Hidding the adView will result in deleting it. Instead use the following method
+
+Note 2: Hidding the adView will result in deleting it. Instead use the following method.
 
 ```objective-c
  [self.adView removeTheAd];
@@ -191,13 +194,12 @@ Note 2: Hidding the adView will result in deleting it. Instead use the following
 
 2) Add the following line to your view controller
 ```objective-c
-    RTAdView *adView = [[RTAdView alloc] initWithSize:RTAdPopUp];
+    RTAdView *adView= [[RTAdView alloc] initWithSize:RTAdPopUp];
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenWidth = screenRect.size.width;
     CGFloat screenHeight = screenRect.size.height;
     adView.frame = CGRectMake(0,0,screenWidth,screenHeight);
-    [self.view addSubview:adView];
-    [self.view bringSubviewToFront:adView];
+    [adView prepareAd];
     adView.rootViewController = self;
     [adView loadRequest:[RTAdRequest request]];
 ```
@@ -223,7 +225,7 @@ Note 2: Hidding the adView will result in deleting it. Instead use the following
 2. In the ViewController.m Interface 
 
 ```objective-c
-@interface ViewController 
+@interface ViewController ()
 
 @end
 ```
@@ -237,12 +239,12 @@ Add the following property
 
 
 ```objective-c
-    RTAdView *adView = [[RTAdView alloc] initWithSize:RTAdNative1to1];
-    CGRect frame = self.view.frame;;
-    adView.frame = CGRectMake(100,400,300,300);
-    [adView loadRequest:[RTAdRequest request]];
-    [self.view addSubview:adView];
-    [self.view bringSubviewToFront:adView];
+    self.adView = [[RTAdView alloc] initWithSize:RTAdNative1to1];
+    self.adView.frame = CGRectMake(100,400,300,300);
+    [self.adView prepareAd];
+    [self.adView loadRequest:[RTAdRequest request]];
+    [self.view addSubview:self.adView];
+    [self.view bringSubviewToFront:self.adView];
 ```
 
 ######Third line of code means that the ad will be on position (x=100,y=400) with size (width=300, height=300). 
@@ -257,7 +259,7 @@ Add the following property
 2. In the ViewController.m Interface 
 
 ```objective-c
-@interface ViewController 
+@interface ViewController () 
 
 @end
 ```
@@ -271,12 +273,12 @@ Add the following property
 
 
 ```objective-c
-    RTAdView *adView = [[RTAdView alloc] initWithSize:RTAdNative6to1];
-    CGRect frame = self.view.frame;;
-    adView.frame = CGRectMake(100,400,300,50);
-    [adView loadRequest:[RTAdRequest request]];
-    [self.view addSubview:adView];
-    [self.view bringSubviewToFront:adView];
+    self.adView = [[RTAdView alloc] initWithSize:RTAdNative6to1];
+    self.adView.frame = CGRectMake(100,400,300,50);
+    [self.adView prepareAd];
+    [self.adView loadRequest:[RTAdRequest request]];
+    [self.view addSubview:self.adView];
+    [self.view bringSubviewToFront:self.adView];
 ```
 
 ######Third line of code means that the ad will be on position (x=100,y=400) with size (width=300, height=50).
@@ -293,7 +295,7 @@ Add the following property
 2. In the ViewController.m Interface 
 
 ```objective-c
-@interface ViewController 
+@interface ViewController ()
 
 @end
 ```
@@ -307,12 +309,12 @@ Add the following property
 
 
 ```objective-c
-    RTAdView *adView = [[RTAdView alloc] initWithSize:RTAdNative1to6];
-    CGRect frame = self.view.frame;;
-    adView.frame = CGRectMake(100,400,50,300);
-    [adView loadRequest:[RTAdRequest request]];
-    [self.view addSubview:adView];
-    [self.view bringSubviewToFront:adView];
+    self.adView = [[RTAdView alloc] initWithSize:RTAdNative1to6];
+    self.adView.frame = CGRectMake(100,400,50,300);
+    [self.adView prepareAd];
+    [self.adView loadRequest:[RTAdRequest request]];
+    [self.view addSubview:self.adView];
+    [self.view bringSubviewToFront:self.adView];
 ```
 
 
@@ -320,7 +322,7 @@ Add the following property
 
 ######Important Notes: 
 
-Note 1.Native ads can be placed anywhere INSIDE the screen. Placing the ad outside the boarder of the screen will result in deleteing the ad.
+Note 1.Native ads can be placed anywhere INSIDE the screen. Placing the ad outside the boarder of the screen will result in deleteing the ad. (This also apply after device orientation)
 
 Note 2.Sizes are limited to:
 

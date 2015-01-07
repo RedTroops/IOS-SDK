@@ -203,8 +203,11 @@ Note 2: Hidding the adView will result in deleting it. Instead use the following
     CGFloat screenHeight = screenRect.size.height;
     adView.frame = CGRectMake(0,0,screenWidth,screenHeight);
     [adView prepareAd];
+    [self.view addSubview:adView];
+    [self.view bringSubviewToFront:adView];
     adView.rootViewController = self;
     [adView loadRequest:[RTAdRequest request]];
+
 ```
 
 ---------------

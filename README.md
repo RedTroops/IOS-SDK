@@ -114,6 +114,45 @@ and add the following line of code
 
 ######3. Native
 
+######Before adding any ad:
+In the targeted viewController.m , add these 2 properties
+
+```objective-c
+@property (nonatomic,assign) CGFloat heightOfScreen;
+@property (nonatomic,assign) CGFloat widthOfScreen;
+```
+
+and the following method (this method will give the current screen width and height using any iOS)
+```objective-c
+-(void) getScreenSize
+{
+    NSString *osVersion = [[UIDevice currentDevice] systemVersion];
+    float osVERSION = [osVersion floatValue];
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenWidth = screenRect.size.width;
+    CGFloat screenHeight = screenRect.size.height;
+    if (osVERSION >= 8)
+    {
+        _heightOfScreen = screenHeight;
+        _widthOfScreen = screenWidth;
+    }
+    else
+    {
+        UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
+        if (orientation == 4 || orientation == 3)
+        {
+            _heightOfScreen = screenWidth;
+            _widthOfScreen = screenHeight;
+        }
+        else if (orientation == 1 || orientation == 2)
+        {
+            _heightOfScreen = screenHeight;
+            _widthOfScreen = screenWidth;
+        }
+    }
+}
+```
+
 
 ###1. Banner
 
@@ -140,11 +179,14 @@ Add the following property
 3. Add the following line to your view controller to show the ad
 
 ```objective-c
+    [self getScreenSize];
     self.adView = [[RTAdView alloc] initWithSize:RTAdBannerTop];
+    self.adView.frame = CGRectMake((_widthOfScreen-320)/2,0,320,75);
     [self.adView prepareAd];
     [self.view addSubview:self.adView];
     [self.view bringSubviewToFront:self.adView];
     [self.adView loadRequest:[RTAdRequest request]];
+    
 ```
 
 #####B. Bottom Screen Banner
@@ -170,11 +212,13 @@ Add the following property
 3. Add the following line to your view controller to show the ad
 
 ```objective-c
-    self.adView = [[RTAdView alloc] initWithSize:RTAdBannerBottom];
-    [self.adView prepareAd];
-    [self.view addSubview:self.adView];
-    [self.view bringSubviewToFront:self.adView];
-    [self.adView loadRequest:[RTAdRequest request]];
+    [self getScreenSize];
+    RTAdView *adView = [[RTAdView alloc] initWithSize:RTAdBannerBottom];
+    adView.frame = CGRectMake((_widthOfScreen-320)/2,_heightOfScreen-75,320,75);
+    [adView prepareAd];
+    [self.view addSubview:adView];
+    [self.view bringSubviewToFront:adView];
+    [adView loadRequest:[RTAdRequest request]];
 ```
 
 ###### Important notes

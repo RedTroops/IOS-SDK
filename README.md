@@ -114,7 +114,12 @@ and add the following line of code
 
 ######3. Native
 
-######Before adding any ad:
+
+
+
+###1. Banner
+
+######Before adding a banner:
 In the targeted viewController.m , add these 2 properties
 
 ```objective-c
@@ -153,9 +158,6 @@ and the following method (this method will give the current screen width and hei
 }
 ```
 
-
-###1. Banner
-
 #####A. Top Screen Banner
 
 1. Import the following file to your view controller
@@ -173,19 +175,19 @@ and the following method (this method will give the current screen width and hei
 Add the following property
 
 ```objective-c
-@property (nonatomic,strong) RTAdView *adView;
+@property (nonatomic,strong) RTAdView *topBanner;
 ```
 
 3. Add the following line to your view controller to show the ad
 
 ```objective-c
     [self getScreenSize];
-    self.adView = [[RTAdView alloc] initWithSize:RTAdBannerTop];
-    self.adView.frame = CGRectMake((_widthOfScreen-320)/2,0,320,75);
-    [self.adView prepareAd];
-    [self.view addSubview:self.adView];
-    [self.view bringSubviewToFront:self.adView];
-    [self.adView loadRequest:[RTAdRequest request]];
+    self.topBanner = [[RTAdView alloc] initWithSize:RTAdBannerTop];
+    self.topBanner.frame = CGRectMake((_widthOfScreen-320)/2,0,320,75);
+    [self.topBanner prepareAd];
+    [self.view addSubview:self.topBanner];
+    [self.view bringSubviewToFront:self.topBanner];
+    [self.topBanner loadRequest:[RTAdRequest request]];
     
 ```
 
@@ -206,19 +208,19 @@ Add the following property
 Add the following property
 
 ```objective-c
-@property (nonatomic,strong) RTAdView *adView;
+@property (nonatomic,strong) RTAdView *bottomBanner;
 ```
 
 3. Add the following line to your view controller to show the ad
 
 ```objective-c
     [self getScreenSize];
-    RTAdView *adView = [[RTAdView alloc] initWithSize:RTAdBannerBottom];
-    adView.frame = CGRectMake((_widthOfScreen-320)/2,_heightOfScreen-75,320,75);
-    [adView prepareAd];
-    [self.view addSubview:adView];
-    [self.view bringSubviewToFront:adView];
-    [adView loadRequest:[RTAdRequest request]];
+    self.bottomBanner = [[RTAdView alloc] initWithSize:RTAdBannerBottom];
+    self.bottomBanner.frame = CGRectMake((_widthOfScreen-320)/2,_heightOfScreen-75,320,75);
+    [self.bottomBanner prepareAd];
+    [self.view addSubview:self.bottomBanner];
+    [self.view bringSubviewToFront:self.bottomBanner];
+    [self.bottomBanner loadRequest:[RTAdRequest request]];
 ```
 
 ###### Important notes
@@ -239,18 +241,31 @@ Note 2: Hidding the adView will result in deleting it. Instead use the following
     #import "RTAdView.h"
 ```
 
-2) Add the following line to your view controller
+2) In the ViewController.m Interface 
+
 ```objective-c
-    RTAdView *adView= [[RTAdView alloc] initWithSize:RTAdPopUp];
+@interface ViewController ()
+
+@end
+```
+Add the following property
+
+```objective-c
+@property (nonatomic,strong) RTAdView *ad;
+```
+
+3) Add the following lines to your view controller
+```objective-c
+    self.ad = [[RTAdView alloc] initWithSize:RTAdPopUp];
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenWidth = screenRect.size.width;
     CGFloat screenHeight = screenRect.size.height;
-    adView.frame = CGRectMake(0,0,screenWidth,screenHeight);
-    [adView prepareAd];
-    [self.view addSubview:adView];
-    [self.view bringSubviewToFront:adView];
-    adView.rootViewController = self;
-    [adView loadRequest:[RTAdRequest request]];
+    self.ad.frame = CGRectMake(0,0,screenWidth,screenHeight);
+    [self.ad prepareAd];
+    [self.view addSubview:self.ad];
+    [self.view bringSubviewToFront:self.ad];
+    self.ad.rootViewController = self;
+    [self.ad loadRequest:[RTAdRequest request]];
 
 ```
 

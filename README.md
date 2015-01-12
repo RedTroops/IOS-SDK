@@ -181,12 +181,11 @@ Add the following property
 3. Add the following line to your view controller to show the ad
 
 ```objective-c
-    [self getScreenSize];
     self.topBanner = [[RTAdView alloc] initWithSize:RTAdBannerTop];
     self.topBanner.frame = CGRectMake((_widthOfScreen-320)/2,0,320,75);
+    [[[UIApplication sharedApplication]keyWindow]addSubview:self.topBanner];
+    [[[UIApplication sharedApplication]keyWindow]bringSubviewToFront:self.topBanner];
     [self.topBanner prepareAd];
-    [self.view addSubview:self.topBanner];
-    [self.view bringSubviewToFront:self.topBanner];
     [self.topBanner loadRequest:[RTAdRequest request]];
     
 ```
@@ -214,12 +213,11 @@ Add the following property
 3. Add the following line to your view controller to show the ad
 
 ```objective-c
-    [self getScreenSize];
-    self.bottomBanner = [[RTAdView alloc] initWithSize:RTAdBannerBottom];
+    self.bottomBanner = [[RTAdView alloc] initWithSize:RTAdBannerTop];
     self.bottomBanner.frame = CGRectMake((_widthOfScreen-320)/2,_heightOfScreen-75,320,75);
+    [[[UIApplication sharedApplication]keyWindow]addSubview:self.bottomBanner];
+    [[[UIApplication sharedApplication]keyWindow]bringSubviewToFront:self.bottomBanner];
     [self.bottomBanner prepareAd];
-    [self.view addSubview:self.bottomBanner];
-    [self.view bringSubviewToFront:self.bottomBanner];
     [self.bottomBanner loadRequest:[RTAdRequest request]];
 ```
 
@@ -235,6 +233,46 @@ Note 2: Hidding the adView will result in deleting it. Instead use the following
 ---------------
 
 ###2. Interstitial 
+
+######Before adding an Interstitial:
+In the targeted viewController.m , add these 2 properties
+
+```objective-c
+@property (nonatomic,assign) CGFloat heightOfScreen;
+@property (nonatomic,assign) CGFloat widthOfScreen;
+```
+
+and the following method (this method will give the current screen width and height using any iOS)
+```objective-c
+-(void) getScreenSize
+{
+    NSString *osVersion = [[UIDevice currentDevice] systemVersion];
+    float osVERSION = [osVersion floatValue];
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenWidth = screenRect.size.width;
+    CGFloat screenHeight = screenRect.size.height;
+    if (osVERSION >= 8)
+    {
+        _heightOfScreen = screenHeight;
+        _widthOfScreen = screenWidth;
+    }
+    else
+    {
+        UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
+        if (orientation == 4 || orientation == 3)
+        {
+            _heightOfScreen = screenWidth;
+            _widthOfScreen = screenHeight;
+        }
+        else if (orientation == 1 || orientation == 2)
+        {
+            _heightOfScreen = screenHeight;
+            _widthOfScreen = screenWidth;
+        }
+    }
+}
+```
+
 
 1) Import the following file to your view controller
 ```objective-c
@@ -255,18 +293,15 @@ Add the following property
 ```
 
 3) Add the following lines to your view controller
-```objective-c
-    self.ad = [[RTAdView alloc] initWithSize:RTAdPopUp];
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    CGFloat screenWidth = screenRect.size.width;
-    CGFloat screenHeight = screenRect.size.height;
-    self.ad.frame = CGRectMake(0,0,screenWidth,screenHeight);
-    [self.ad prepareAd];
-    [self.view addSubview:self.ad];
-    [self.view bringSubviewToFront:self.ad];
-    self.ad.rootViewController = self;
-    [self.ad loadRequest:[RTAdRequest request]];
 
+```objective-c
+    [self getScreenSize];
+    self.ad= [[RTAdView alloc] initWithSize:RTAdPopUp];
+    self.ad.frame = CGRectMake(0,0,_widthOfScreen,_heightOfScreen);
+    [[[UIApplication sharedApplication]keyWindow]addSubview:self.ad];
+    [[[UIApplication sharedApplication]keyWindow]bringSubviewToFront:self.ad];
+    [self.ad prepareAd];
+    [self.ad loadRequest:[RTAdRequest request]];
 ```
 
 ---------------
@@ -306,10 +341,10 @@ Add the following property
 ```objective-c
     self.adView = [[RTAdView alloc] initWithSize:RTAdNative1to1];
     self.adView.frame = CGRectMake(100,400,300,300);
+    [[[UIApplication sharedApplication]keyWindow]addSubview:self.adView];
+    [[[UIApplication sharedApplication]keyWindow]bringSubviewToFront:self.adView];
     [self.adView prepareAd];
     [self.adView loadRequest:[RTAdRequest request]];
-    [self.view addSubview:self.adView];
-    [self.view bringSubviewToFront:self.adView];
 ```
 
 ######Second line of code means that the ad will be on position (x=100,y=400) with size (width=300, height=300). 
@@ -340,10 +375,10 @@ Add the following property
 ```objective-c
     self.adView = [[RTAdView alloc] initWithSize:RTAdNative6to1];
     self.adView.frame = CGRectMake(100,400,300,50);
+    [[[UIApplication sharedApplication]keyWindow]addSubview:self.adView];
+    [[[UIApplication sharedApplication]keyWindow]bringSubviewToFront:self.adView];
     [self.adView prepareAd];
     [self.adView loadRequest:[RTAdRequest request]];
-    [self.view addSubview:self.adView];
-    [self.view bringSubviewToFront:self.adView];
 ```
 
 ######Second line of code means that the ad will be on position (x=100,y=400) with size (width=300, height=50).
@@ -376,10 +411,10 @@ Add the following property
 ```objective-c
     self.adView = [[RTAdView alloc] initWithSize:RTAdNative1to6];
     self.adView.frame = CGRectMake(100,400,50,300);
+    [[[UIApplication sharedApplication]keyWindow]addSubview:self.adView];
+    [[[UIApplication sharedApplication]keyWindow]bringSubviewToFront:self.adView];
     [self.adView prepareAd];
     [self.adView loadRequest:[RTAdRequest request]];
-    [self.view addSubview:self.adView];
-    [self.view bringSubviewToFront:self.adView];
 ```
 
 

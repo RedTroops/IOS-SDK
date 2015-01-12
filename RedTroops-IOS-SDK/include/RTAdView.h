@@ -20,5 +20,8 @@
 @property (nonatomic, strong) NSNumber *adId;
 
 -(void)loadRequest:(RTAdRequest *)request;
+-(void)prepareAd;
+-(void)removeTheAd;
+
 
 @end

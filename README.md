@@ -213,7 +213,7 @@ Add the following property
 3. Add the following line to your view controller to show the ad
 
 ```objective-c
-    self.bottomBanner = [[RTAdView alloc] initWithSize:RTAdBannerTop];
+    self.bottomBanner = [[RTAdView alloc] initWithSize:RTAdBannerBottom];
     self.bottomBanner.frame = CGRectMake((_widthOfScreen-320)/2,_heightOfScreen-75,320,75);
     [[[UIApplication sharedApplication]keyWindow]addSubview:self.bottomBanner];
     [[[UIApplication sharedApplication]keyWindow]bringSubviewToFront:self.bottomBanner];

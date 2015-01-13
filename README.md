@@ -183,8 +183,8 @@ Add the following property
 ```objective-c
     self.topBanner = [[RTAdView alloc] initWithSize:RTAdBannerTop];
     self.topBanner.frame = CGRectMake((_widthOfScreen-320)/2,0,320,75);
-    [[[UIApplication sharedApplication]keyWindow]addSubview:self.topBanner];
-    [[[UIApplication sharedApplication]keyWindow]bringSubviewToFront:self.topBanner];
+    [self.view addSubview:self.topBanner];
+    [self.view bringSubviewToFront:self.topBanner];
     [self.topBanner prepareAd];
     [self.topBanner loadRequest:[RTAdRequest request]];
     
@@ -215,8 +215,8 @@ Add the following property
 ```objective-c
     self.bottomBanner = [[RTAdView alloc] initWithSize:RTAdBannerBottom];
     self.bottomBanner.frame = CGRectMake((_widthOfScreen-320)/2,_heightOfScreen-75,320,75);
-    [[[UIApplication sharedApplication]keyWindow]addSubview:self.bottomBanner];
-    [[[UIApplication sharedApplication]keyWindow]bringSubviewToFront:self.bottomBanner];
+    [self.view addSubview:self.bottomBanner];
+    [self.view bringSubviewToFront:self.bottomBanner];
     [self.bottomBanner prepareAd];
     [self.bottomBanner loadRequest:[RTAdRequest request]];
 ```
@@ -298,8 +298,15 @@ Add the following property
     [self getScreenSize];
     self.ad= [[RTAdView alloc] initWithSize:RTAdPopUp];
     self.ad.frame = CGRectMake(0,0,_widthOfScreen,_heightOfScreen);
+    
+    if you are targeting only iOS 8 use this method:
     [[[UIApplication sharedApplication]keyWindow]addSubview:self.ad];
     [[[UIApplication sharedApplication]keyWindow]bringSubviewToFront:self.ad];
+    
+    if you targeting iOS 6 and later use this method
+    [self.view addSubview:self.ad];
+    [self.view bringSubviewToFront:self.ad];
+    
     [self.ad prepareAd];
     [self.ad loadRequest:[RTAdRequest request]];
 ```
@@ -341,8 +348,8 @@ Add the following property
 ```objective-c
     self.adView = [[RTAdView alloc] initWithSize:RTAdNative1to1];
     self.adView.frame = CGRectMake(100,400,300,300);
-    [[[UIApplication sharedApplication]keyWindow]addSubview:self.adView];
-    [[[UIApplication sharedApplication]keyWindow]bringSubviewToFront:self.adView];
+    [self.view addSubview:self.adView];
+    [self.view bringSubviewToFront:self.adView];
     [self.adView prepareAd];
     [self.adView loadRequest:[RTAdRequest request]];
 ```
@@ -375,8 +382,8 @@ Add the following property
 ```objective-c
     self.adView = [[RTAdView alloc] initWithSize:RTAdNative6to1];
     self.adView.frame = CGRectMake(100,400,300,50);
-    [[[UIApplication sharedApplication]keyWindow]addSubview:self.adView];
-    [[[UIApplication sharedApplication]keyWindow]bringSubviewToFront:self.adView];
+    [self.view addSubview:self.adView];
+    [self.view bringSubviewToFront:self.adView];
     [self.adView prepareAd];
     [self.adView loadRequest:[RTAdRequest request]];
 ```
@@ -411,8 +418,8 @@ Add the following property
 ```objective-c
     self.adView = [[RTAdView alloc] initWithSize:RTAdNative1to6];
     self.adView.frame = CGRectMake(100,400,50,300);
-    [[[UIApplication sharedApplication]keyWindow]addSubview:self.adView];
-    [[[UIApplication sharedApplication]keyWindow]bringSubviewToFront:self.adView];
+    [self.view addSubview:self.adView];
+    [self.view bringSubviewToFront:self.adView];
     [self.adView prepareAd];
     [self.adView loadRequest:[RTAdRequest request]];
 ```

@@ -21,9 +21,11 @@ RedTroops SDK 2.0 currently features:
 ---------------
 ######[Cocos2d](https://github.com/RedTroops/IOS-SDK/wiki/Cocos2d---Cocos2d-x-Documentation), [Cocos2d-x](https://github.com/RedTroops/IOS-SDK/wiki/Cocos2d---Cocos2d-x-Documentation), and [Unity](https://github.com/RedTroops/IOS-SDK/wiki/Unity-Documentation) documentation are available
 
-Cocos2d, Cocos2d-x, and Unity support portrait and lanscape for apps targeting iOS 8.0+ only.
+For Cocos2d, Cocos2d-x, adnd Unity:
 
-Cocos2d, Cocos2d-x, and Unity support portrait ONLY for apps targeting iOS 6.0+ .
+If your app is targeting iOS 8+ only, our SDK support portrait and lanscape orientation.
+
+If your app is targeting iOS 6+ only, our SDK support portrait orientation only.
 
 ---------------
 
@@ -438,6 +440,8 @@ Note 2.Sizes are limited to:
 ######1:1 —> Minimum 50x50 and Maximum 300x300
 ######6:1 —> Minimum 300x50 and Maximum 3750x625
 ######1:6 —> Minimum 50x300 and Maximum 625x3750
+
+*[Here](https://github.com/RedTroops/IOS-SDK/wiki/Adding-Native-ad-to-a-tableView) you can find the guide to add a native ad to a table view.
 
 Note 3: Hidding the adView will result in deleting it. Instead use the following method
 

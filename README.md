@@ -147,13 +147,13 @@ and the following method (this method will give the current screen width and hei
     }
     else
     {
-        UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
-        if (orientation == 4 || orientation == 3)
+        UIInterfaceOrientation statusBarOrientation =[UIApplication sharedApplication].statusBarOrientation;
+        if (statusBarOrientation==4||statusBarOrientation==3)
         {
             _heightOfScreen = screenWidth;
             _widthOfScreen = screenHeight;
         }
-        else if (orientation == 1 || orientation == 2)
+        else if (statusBarOrientation==1||statusBarOrientation==2)
         {
             _heightOfScreen = screenHeight;
             _widthOfScreen = screenWidth;
@@ -262,13 +262,13 @@ and the following method (this method will give the current screen width and hei
     }
     else
     {
-        UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
-        if (orientation == 4 || orientation == 3)
+        UIInterfaceOrientation statusBarOrientation =[UIApplication sharedApplication].statusBarOrientation;
+        if (statusBarOrientation==4||statusBarOrientation==3)
         {
             _heightOfScreen = screenWidth;
             _widthOfScreen = screenHeight;
         }
-        else if (orientation == 1 || orientation == 2)
+        else if (statusBarOrientation==1||statusBarOrientation==2)
         {
             _heightOfScreen = screenHeight;
             _widthOfScreen = screenWidth;

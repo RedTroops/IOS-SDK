@@ -185,6 +185,7 @@ Add the following property
 3. Add the following line to your view controller to show the ad
 
 ```objective-c
+    [self getScreenSize];
     self.topBanner = [[RTAdView alloc] initWithSize:RTAdBannerTop];
     self.topBanner.frame = CGRectMake((_widthOfScreen-320)/2,0,320,75);
     [self.view addSubview:self.topBanner];
@@ -217,6 +218,7 @@ Add the following property
 3. Add the following line to your view controller to show the ad
 
 ```objective-c
+    [self getScreenSize];
     self.bottomBanner = [[RTAdView alloc] initWithSize:RTAdBannerBottom];
     self.bottomBanner.frame = CGRectMake((_widthOfScreen-320)/2,_heightOfScreen-75,320,75);
     [self.view addSubview:self.bottomBanner];

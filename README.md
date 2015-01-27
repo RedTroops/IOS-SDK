@@ -526,7 +526,9 @@ and add the following line of code
 ```
 
 *Remember: After creating you application on redtroop.com there 2 options (Development and Production).
+
 Development is when your app is still under development and not on the AppStore yet. The certificates on Apple Dev Center are still the development ones.
+
 Production is when your application in on the AppStore. The certificates on Apple Dev Center must be the production ones.
 
 

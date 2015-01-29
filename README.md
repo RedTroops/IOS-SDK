@@ -185,6 +185,7 @@ Add the following property
 3. Add the following line to your view controller to show the ad
 
 ```objective-c
+    [self getScreenSize];
     self.topBanner = [[RTAdView alloc] initWithSize:RTAdBannerTop];
     self.topBanner.frame = CGRectMake((_widthOfScreen-320)/2,0,320,75);
     [self.view addSubview:self.topBanner];
@@ -217,6 +218,7 @@ Add the following property
 3. Add the following line to your view controller to show the ad
 
 ```objective-c
+    [self getScreenSize];
     self.bottomBanner = [[RTAdView alloc] initWithSize:RTAdBannerBottom];
     self.bottomBanner.frame = CGRectMake((_widthOfScreen-320)/2,_heightOfScreen-75,320,75);
     [self.view addSubview:self.bottomBanner];
@@ -522,5 +524,14 @@ and add the following line of code
 ```objective-c
     NSLog(@"4:%@", error.localizedDescription);
 ```
+
+*Remember: After creating you application on redtroop.com there 2 options (Development and Production).
+
+Development is when your app is still under development and not on the AppStore yet. The certificates on Apple Dev Center are still the development ones.
+
+Production is when your application in on the AppStore. The certificates on Apple Dev Center must be the production ones.
+
+
+-----------
 
 **If you need any help or for more information, please visit:**  <a href="http://docs.redtroops.com" class="btn">RedTroops Docs</a>

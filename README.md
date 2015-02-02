@@ -534,4 +534,10 @@ Production is when your application in on the AppStore. The certificates on Appl
 
 -----------
 
+Commom Log Errors 
+
+Click [here](https://github.com/RedTroops/IOS-SDK/wiki/Common-Log-Errors)
+
+-------------
+
 **If you need any help or for more information, please visit:**  <a href="http://docs.redtroops.com" class="btn">RedTroops Docs</a>

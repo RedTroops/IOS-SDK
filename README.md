@@ -305,11 +305,11 @@ Add the following property
     self.ad= [[RTAdView alloc] initWithSize:RTAdPopUp];
     self.ad.frame = CGRectMake(0,0,_widthOfScreen,_heightOfScreen);
     
-    if you are targeting only iOS 8 use this method:
-    [[[UIApplication sharedApplication]keyWindow]addSubview:self.ad];
-    [[[UIApplication sharedApplication]keyWindow]bringSubviewToFront:self.ad];
-    
-    if you targeting iOS 6 and later use this method
+    if the view is contains a navigation bar:
+    [self.navigationController.view addSubview:self.ad];
+    [self.navigationController.view bringSubviewToFront:self.ad];
+
+    if not:
     [self.view addSubview:self.ad];
     [self.view bringSubviewToFront:self.ad];
     

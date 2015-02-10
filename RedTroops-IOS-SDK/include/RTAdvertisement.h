@@ -15,6 +15,7 @@
 @property (nonatomic, strong) NSString *targetUrl;
 @property (nonatomic, assign) NSInteger refreshRate;
 @property (nonatomic, strong) NSString *term;
+@property (nonatomic, assign) NSInteger interstitial_id;
 
 -(id)initWithAttributes:(NSDictionary *)attributes;
 

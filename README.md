@@ -181,12 +181,23 @@ Add the following property
 
 ```objective-c
     [self getScreenSize];
+    
+    float widthOfAd;
+    if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ){
+        widthOfAd = _widthOfScreen*0.5;}
+    else{
+        widthOfAd = 320;}
+    float heightOfAd = widthOfAd*(75.0/320);
+    float xOfAd = (_widthOfScreen-widthOfAd)/2;
+    float yOfAd = _heightOfScreen-heightOfAd;
+    
     self.topBanner = [[RTAdView alloc] initWithSize:RTAdBannerTop];
-    self.topBanner.frame = CGRectMake((_widthOfScreen-320)/2,0,320,75);
+    self.topBanner.frame = CGRectMake(xOfAd,0,widthOfAd,heightOfAd);
     [self.view addSubview:self.topBanner];
     [self.view bringSubviewToFront:self.topBanner];
     [self.topBanner prepareAd];
     [self.topBanner loadRequest:[RTAdRequest request]];
+
     
 ```
 
@@ -214,12 +225,23 @@ Add the following property
 
 ```objective-c
     [self getScreenSize];
-    self.bottomBanner = [[RTAdView alloc] initWithSize:RTAdBannerBottom];
-    self.bottomBanner.frame = CGRectMake((_widthOfScreen-320)/2,_heightOfScreen-75,320,75);
+    
+    float widthOfAd;
+    if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ){
+        widthOfAd = _widthOfScreen*0.5;}
+    else{
+        widthOfAd = 320;}
+    float heightOfAd = widthOfAd*(75.0/320);
+    float xOfAd = (_widthOfScreen-widthOfAd)/2;
+    float yOfAd = _heightOfScreen-heightOfAd;
+    
+    self.bottomBanner = [[RTAdView alloc] initWithSize:RTAdBannerTop];
+    self.bottomBanner.frame = CGRectMake(xOfAd,yOfAd,widthOfAd,heightOfAd);
     [self.view addSubview:self.bottomBanner];
     [self.view bringSubviewToFront:self.bottomBanner];
     [self.bottomBanner prepareAd];
     [self.bottomBanner loadRequest:[RTAdRequest request]];
+    
 ```
 
 ###### Important notes
@@ -304,7 +326,11 @@ Add the following property
     [self.navigationController.view addSubview:self.ad];
     [self.navigationController.view bringSubviewToFront:self.ad];
 
-    if not:
+    if the view is contains a tab bar:
+    [self.tabBarController.view addSubview:ad];
+    [self.tabBarController.view bringSubviewToFront:ad];
+    
+    else
     [self.view addSubview:self.ad];
     [self.view bringSubviewToFront:self.ad];
     

@@ -21,11 +21,6 @@ RedTroops SDK 2.0 currently features:
 ---------------
 ######[Cocos2d](https://github.com/RedTroops/IOS-SDK/wiki/Cocos2d---Cocos2d-x-Documentation), [Cocos2d-x](https://github.com/RedTroops/IOS-SDK/wiki/Cocos2d---Cocos2d-x-Documentation), and [Unity](https://github.com/RedTroops/IOS-SDK/wiki/Unity-Documentation) documentation are available
 
-For Cocos2d, Cocos2d-x, and Unity:
-
-If your app is targeting iOS 8+ only, our SDK support portrait and lanscape orientations.
-
-If your app is targeting iOS 6+ only, our SDK support portrait orientation only.
 
 ---------------
 

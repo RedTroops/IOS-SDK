@@ -35,7 +35,7 @@ Follow the steps below to get your RedTroops SDK 2.0 running:
 
 2) Drag & Drop downloaded files (RedTroops.a + include) to your project.
 
-3) Add following framework:
+3) Add following frameworks:
 
 <ul>
 <li>SystemConfiguration.framework</li>
@@ -105,14 +105,13 @@ and add the following line of code
 ---------------
 
 
-######RedTroops offer 3 types of ads:
+####RedTroops offer 3 types of ads:
 
-######1. Banner 
+#####1. Banner  (  Top Screen Banner   - Bottom Screen Banner)
 
-######2. Interstitial
+#####2. Interstitial
 
-######3. Native
-
+#####3. Native (  1:1  - 6:1  - 1:6 )
 
 
 
@@ -159,12 +158,12 @@ and the following method (this method will give the current screen width and hei
 
 #####A. Top Screen Banner
 
-1. Import the following file to your view controller
+1) Import the following file to your view controller
 
 ```objective-c
 #import "RTAdView.h"
 ```
-2. In the ViewController.m Interface 
+2) In the ViewController.m Interface 
 
 ```objective-c
 @interface ViewController ()
@@ -177,7 +176,7 @@ Add the following property
 @property (nonatomic,strong) RTAdView *topBanner;
 ```
 
-3. Add the following line to your view controller to show the ad
+3) Add the following line to your view controller to show the ad
 
 ```objective-c
     [self getScreenSize];
@@ -203,12 +202,12 @@ Add the following property
 
 #####B. Bottom Screen Banner
 
-1. Import the following file to your view controller
+1) Import the following file to your view controller
 
 ```objective-c
 #import "RTAdView.h"
 ```
-2. In the ViewController.m Interface 
+2) In the ViewController.m Interface 
 
 ```objective-c
 @interface ViewController ()
@@ -221,7 +220,7 @@ Add the following property
 @property (nonatomic,strong) RTAdView *bottomBanner;
 ```
 
-3. Add the following line to your view controller to show the ad
+3) Add the following line to your view controller to show the ad
 
 ```objective-c
     [self getScreenSize];
@@ -322,11 +321,11 @@ Add the following property
     self.ad= [[RTAdView alloc] initWithSize:RTAdPopUp];
     self.ad.frame = CGRectMake(0,0,_widthOfScreen,_heightOfScreen);
     
-    if the view is contains a navigation bar:
+    if the view contains a navigation bar:
     [self.navigationController.view addSubview:self.ad];
     [self.navigationController.view bringSubviewToFront:self.ad];
 
-    if the view is contains a tab bar:
+    if the view contains a tab bar:
     [self.tabBarController.view addSubview:ad];
     [self.tabBarController.view bringSubviewToFront:ad];
     

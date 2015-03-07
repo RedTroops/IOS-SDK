@@ -234,7 +234,7 @@ Add the following property
     float xOfAd = (_widthOfScreen-widthOfAd)/2;
     float yOfAd = _heightOfScreen-heightOfAd;
     
-    self.bottomBanner = [[RTAdView alloc] initWithSize:bottomBanner];
+    self.bottomBanner = [[RTAdView alloc] initWithSize:RTAdBannerBottom];
     self.bottomBanner.frame = CGRectMake(xOfAd,yOfAd,widthOfAd,heightOfAd);
     [self.view addSubview:self.bottomBanner];
     [self.view bringSubviewToFront:self.bottomBanner];

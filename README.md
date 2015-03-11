@@ -19,7 +19,7 @@ RedTroops SDK 2.0 currently features:
 
 
 ---------------
-######[Cocos2d](https://github.com/RedTroops/IOS-SDK/wiki/Cocos2d---Cocos2d-x-Documentation), [Cocos2d-x](https://github.com/RedTroops/IOS-SDK/wiki/Cocos2d---Cocos2d-x-Documentation), and [Unity](https://github.com/RedTroops/IOS-SDK/wiki/Unity-Documentation) documentation are available
+######[Cocos2d](https://github.com/RedTroops/IOS-SDK/wiki/Cocos2d---Cocos2d-x-Documentation), [Cocos2d-x](https://github.com/RedTroops/IOS-SDK/wiki/Cocos2d---Cocos2d-x-Documentation), and [Unity](https://github.com/RedTroops/Unity-SDK) documentation are available
 
 
 ---------------

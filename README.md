@@ -15,7 +15,7 @@ RedTroops SDK 3.0 currently features:
 
 **Send user spent time.**
 
-**4 types of (HTML5/Image) ads.**
+**4 types of (HTML5/Image/audio) ads.**
 
 
 ---------------
@@ -392,6 +392,44 @@ Note 3: Hidding the adView will result in deleting it. Instead use the following
  [self.adView removeTheAd];
 ```
 ---------------
+
+###4. Audio Ad
+
+The Audio Ad will play an audio file with.
+
+1. Import the following file to your view controller
+
+```objective-c
+#import "RTAudioAd.h"
+```
+
+add this to play an audio ad
+
+```objective-c
+
+    RTAudioAd *audio = [[RTAudioAd alloc]initWithSize:RTAdAudio];
+    [audio playAudioAd];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(playerItemDidReachEnd:)
+                                                 name:AVPlayerItemDidPlayToEndTimeNotification
+                                               object:playerItem];
+    
+}
+```
+
+and this method is called after the audio ad finished playing
+
+```objective-c
+
+-(void)playerItemDidReachEnd:(NSNotification *) notification {
+    NSLog(@"The Ad finished");
+}
+
+```
+
+---------------
+
 
 ###Push Notifications
 

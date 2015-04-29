@@ -9,7 +9,7 @@ Requirements: **IOS 6.0 +**
 
 ###Getting Started
 
-RedTroops SDK 2.0 currently features:
+RedTroops SDK 3.0 currently features:
 
 **Push Notifications.**
 
@@ -28,7 +28,7 @@ RedTroops SDK 2.0 currently features:
 
 **Setting Up RedTroops SDK 2.0 In Your Project**
 
-Follow the steps below to get your RedTroops SDK 2.0 running:
+Follow the steps below to get your RedTroops SDK 3.0 running:
 
 
 1) Download the SDK from here.
@@ -111,7 +111,7 @@ and add the following line of code
 
 #####2. Interstitial
 
-#####3. Native (  1:1  - 6:1  - 1:6 )
+#####3. Native 
 
 
 
@@ -195,7 +195,9 @@ Add the following property
     [self.view addSubview:self.topBanner];
     [self.view bringSubviewToFront:self.topBanner];
     [self.topBanner prepareAd];
-    [self.topBanner loadRequest:[RTAdRequest request]];
+    [self.topBanner loadRequest];
+
+
 
     
 ```
@@ -239,7 +241,7 @@ Add the following property
     [self.view addSubview:self.bottomBanner];
     [self.view bringSubviewToFront:self.bottomBanner];
     [self.bottomBanner prepareAd];
-    [self.bottomBanner loadRequest:[RTAdRequest request]];
+    [self.bottomBanner loadRequest];
     
 ```
 
@@ -334,21 +336,13 @@ Add the following property
     [self.view bringSubviewToFront:self.ad];
     
     [self.ad prepareAd];
-    [self.ad loadRequest:[RTAdRequest request]];
+    [self.ad loadRequest];
 ```
 
 ---------------
 
-###2. Native
+###3. Native
 
-######Native Ads are offered in three aspect ratios:
-
-######A) 1 : 1  
-######B) 6 : 1  
-######C) 1 : 6
-
-
-####A) 1 : 1
 
 1. Import the following file to your view controller
 
@@ -373,95 +367,22 @@ Add the following property
 
 ```objective-c
     self.adView = [[RTAdView alloc] initWithSize:RTAdNative1to1];
-    self.adView.frame = CGRectMake(100,400,300,300);
-    [self.view addSubview:self.adView];
-    [self.view bringSubviewToFront:self.adView];
-    [self.adView prepareAd];
-    [self.adView loadRequest:[RTAdRequest request]];
-```
-
-######Second line of code means that the ad will be on position (x=100,y=400) with size (width=300, height=300). 
-
-####B) 6 : 1
-
-1. Import the following file to your view controller
-
-```objective-c
-#import "RTAdView.h"
-```
-2. In the ViewController.m Interface 
-
-```objective-c
-@interface ViewController () 
-
-@end
-```
-Add the following property
-
-```objective-c
-@property (nonatomic,strong) RTAdView *adView;
-```
-
-3. Add the following line to your view controller to show the ad
-
-
-```objective-c
-    self.adView = [[RTAdView alloc] initWithSize:RTAdNative6to1];
     self.adView.frame = CGRectMake(100,400,300,50);
     [self.view addSubview:self.adView];
     [self.view bringSubviewToFront:self.adView];
     [self.adView prepareAd];
-    [self.adView loadRequest:[RTAdRequest request]];
+    [self.adView loadRequest];
 ```
 
-######Second line of code means that the ad will be on position (x=100,y=400) with size (width=300, height=50).
+######Second line of code means that the ad will be on position (x=100,y=400) with size (width=300, height=50). 
 
-
-
-####C) 1 : 6
-
-1. Import the following file to your view controller
-
-```objective-c
-#import "RTAdView.h"
-```
-2. In the ViewController.m Interface 
-
-```objective-c
-@interface ViewController ()
-
-@end
-```
-Add the following property
-
-```objective-c
-@property (nonatomic,strong) RTAdView *adView;
-```
-
-3. Add the following line to your view controller to show the ad
-
-
-```objective-c
-    self.adView = [[RTAdView alloc] initWithSize:RTAdNative1to6];
-    self.adView.frame = CGRectMake(100,400,50,300);
-    [self.view addSubview:self.adView];
-    [self.view bringSubviewToFront:self.adView];
-    [self.adView prepareAd];
-    [self.adView loadRequest:[RTAdRequest request]];
-```
-
-
-######Second line of code means that the ad will be on position (x=100,y=400) with size (width=50, height=300).
 
 ######Important Notes: 
 
 Note 1.Native ads can be placed anywhere INSIDE the screen. Placing the ad outside the boarder of the screen will result in deleteing the ad. (This also apply after device orientation)
 
-Note 2.Sizes are limited to:
+Note 2.The Native must be initialized with respect to the following aspect ratios (4:1 , 3:2). 
 
-######1:1 —> Minimum 50x50 and Maximum 300x300
-######6:1 —> Minimum 300x50 and Maximum 3750x625
-######1:6 —> Minimum 50x300 and Maximum 625x3750
 
 *[Here](https://github.com/RedTroops/IOS-SDK/wiki/Adding-Native-ad-to-a-tableView) you can find the guide to add a native ad to a table view.
 

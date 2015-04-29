@@ -403,7 +403,13 @@ The Audio Ad will play an audio file.
 #import "RTAudioAd.h"
 ```
 
-add this to play an audio ad
+2. add this object
+
+```objective-c
+AVPlayerItem *playerItem;
+```
+
+3. add this to play an audio ad
 
 ```objective-c
 

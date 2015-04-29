@@ -395,7 +395,7 @@ Note 3: Hidding the adView will result in deleting it. Instead use the following
 
 ###4. Audio Ad
 
-The Audio Ad will play an audio file with.
+The Audio Ad will play an audio file.
 
 1. Import the following file to your view controller
 
@@ -415,7 +415,7 @@ add this to play an audio ad
                                                  name:AVPlayerItemDidPlayToEndTimeNotification
                                                object:playerItem];
     
-}
+
 ```
 
 and this method is called after the audio ad finished playing

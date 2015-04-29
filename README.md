@@ -3,7 +3,7 @@
 </p>
 
 
-#RedTroops SDK 2.0 for IOS
+#RedTroops SDK 3.0 for IOS
 
 Requirements: **IOS 6.0 +**
 
@@ -15,7 +15,7 @@ RedTroops SDK 3.0 currently features:
 
 **Send user spent time.**
 
-**3 types of (HTML5/Image) ads.**
+**4 types of (HTML5/Image) ads.**
 
 
 ---------------
@@ -26,7 +26,7 @@ RedTroops SDK 3.0 currently features:
 
 
 
-**Setting Up RedTroops SDK 2.0 In Your Project**
+**Setting Up RedTroops SDK 3.0 In Your Project**
 
 Follow the steps below to get your RedTroops SDK 3.0 running:
 

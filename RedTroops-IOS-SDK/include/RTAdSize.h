@@ -18,9 +18,7 @@ typedef struct RTAdType {
 extern RTAdType const RTAdBannerTop;
 extern RTAdType const RTAdBannerBottom;
 extern RTAdType const RTAdPopUp;
-extern RTAdType const RTAdNative1to1;
-extern RTAdType const RTAdNative1to6;
-extern RTAdType const RTAdNative6to1;
-
+extern RTAdType const RTAdNative;
+extern RTAdType const RTAdAudio;
 
 

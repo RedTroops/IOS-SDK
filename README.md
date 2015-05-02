@@ -401,6 +401,7 @@ The Audio Ad will play an audio file.
 
 ```objective-c
 #import "RTAudioAd.h"
+#import <AVFoundation/AVFoundation.h>
 ```
 
 2. add this object

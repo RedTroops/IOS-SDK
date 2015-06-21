@@ -400,27 +400,29 @@ The Audio Ad will play an audio file.
 1. Import the following file to your view controller
 
 ```objective-c
-#import "RTAudioAd.h"
+#import "RTAudio.h"
 #import <AVFoundation/AVFoundation.h>
 ```
 
-2. add this object
+2. add this object to the interface
 
 ```objective-c
-AVPlayerItem *playerItem;
+@property (nonatomic, strong) AVPlayerItem *playerItem;
 ```
 
 3. add this to play an audio ad
 
 ```objective-c
 
-    RTAudioAd *audio = [[RTAudioAd alloc]initWithSize:RTAdAudio];
-    [audio playAudioAd];
+    self.playerItem = [[AVPlayerItem alloc]init];
+    RTAudio *player = [[RTAudio alloc]initWithPlayerItem:self.playerItem];
+    [player playRTAudioAd];
+    
     
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(playerItemDidReachEnd:)
+                                             selector:@selector(RedTroopsAudioAdFinished:)
                                                  name:AVPlayerItemDidPlayToEndTimeNotification
-                                               object:playerItem];
+                                               object:self.playerItem];
     
 
 ```
@@ -429,8 +431,11 @@ and this method is called after the audio ad finished playing
 
 ```objective-c
 
--(void)playerItemDidReachEnd:(NSNotification *) notification {
-    NSLog(@"The Ad finished");
+-(void)RedTroopsAudioAdFinished:(NSNotification *) notification {
+    
+    NSLog(@"Finished");
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:AVPlayerItemDidPlayToEndTimeNotification object:self.playerItem];
+    
 }
 
 ```

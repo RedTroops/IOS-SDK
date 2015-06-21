@@ -16,6 +16,7 @@
 @property (nonatomic, assign) NSInteger refreshRate;
 @property (nonatomic, strong) NSString *term;
 @property (nonatomic, assign) NSInteger interstitial_id;
+@property (nonatomic, strong) NSString *storePackageName;
 
 -(id)initWithAttributes:(NSDictionary *)attributes;
 

@@ -26,7 +26,7 @@ RedTroops SDK 3.1.0 currently features:
 
 
 
-**Setting Up RedTroops SDK 3.0 In Your Project**
+**Setting Up RedTroops SDK 3.1.0 In Your Project**
 
 Follow the steps below to get your RedTroops SDK 3.1.0 running:
 

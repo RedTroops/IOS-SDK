@@ -3,13 +3,13 @@
 </p>
 
 
-#RedTroops SDK 3.1.0 for IOS
+#RedTroops SDK 3.1.1 for IOS
 
 Requirements: **IOS 6.0 +**
 
 ###Getting Started
 
-RedTroops SDK 3.1.0 currently features:
+RedTroops SDK 3.1.1 currently features:
 
 **Push Notifications.**
 
@@ -26,9 +26,9 @@ RedTroops SDK 3.1.0 currently features:
 
 
 
-**Setting Up RedTroops SDK 3.1.0 In Your Project**
+**Setting Up RedTroops SDK 3.1.1 In Your Project**
 
-Follow the steps below to get your RedTroops SDK 3.1.0 running:
+Follow the steps below to get your RedTroops SDK 3.1.1 running:
 
 
 1) Download the SDK from here.
@@ -196,7 +196,7 @@ Add the following property
     [self.view bringSubviewToFront:self.topBanner];
     [self.topBanner prepareAd];
     [self.topBanner loadRequest];
-
+    [self.topBanner showAd];
 
 
     
@@ -242,14 +242,17 @@ Add the following property
     [self.view bringSubviewToFront:self.bottomBanner];
     [self.bottomBanner prepareAd];
     [self.bottomBanner loadRequest];
-    
+    [self.bottomBanner showAd];
+
 ```
 
 ###### Important notes
 
 Note 1: Banner’s size and position are fixed, changing any will result in removing them from the view.
 
-Note 2: Hidding the adView will result in deleting it. Instead use the following method.
+Note 2: "showAd" method could be called anytime after "loadRequest" even in another method.
+
+Note 3: Hidding the adView will result in deleting it. Instead use the following method.
 
 ```objective-c
  [self.adView removeTheAd];
@@ -316,7 +319,7 @@ Add the following property
 @property (nonatomic,strong) RTAdView *ad;
 ```
 
-3) Add the following lines to your view controller
+3) Add the following lines to prepare the Ad
 
 ```objective-c
     [self getScreenSize];
@@ -337,6 +340,14 @@ Add the following property
     
     [self.ad prepareAd];
     [self.ad loadRequest];
+    
+```
+3) Add the following lines to show the Ad
+
+```objective-c
+
+       [self.ad showAd];
+
 ```
 
 ---------------
@@ -372,6 +383,8 @@ Add the following property
     [self.view bringSubviewToFront:self.adView];
     [self.adView prepareAd];
     [self.adView loadRequest];
+    [self.adView showAd];
+
 ```
 
 ######Second line of code means that the ad will be on position (x=100,y=400) with size (width=300, height=50). 
@@ -379,14 +392,12 @@ Add the following property
 
 ######Important Notes: 
 
-Note 1.Native ads can be placed anywhere INSIDE the screen. Placing the ad outside the boarder of the screen will result in deleteing the ad. (This also apply after device orientation)
-
-Note 2.The Native must be initialized with respect to the following aspect ratios (4:1 , 3:2). 
+Note 1: Native ads can be placed anywhere INSIDE the screen. Placing the ad outside the boarder of the screen will result in deleteing the ad. (This also apply after device orientation)
 
 
 *[Here](https://github.com/RedTroops/IOS-SDK/wiki/Adding-Native-ad-to-a-tableView) you can find the guide to add a native ad to a table view.
 
-Note 3: Hidding the adView will result in deleting it. Instead use the following method
+Note 2: Hidding the adView will result in deleting it. Instead use the following method
 
 ```objective-c
  [self.adView removeTheAd];

@@ -23,6 +23,7 @@
 -(void)loadRequest;
 -(void)prepareAd;
 -(void)removeTheAd;
+-(void)showAd;
 
 
 @end

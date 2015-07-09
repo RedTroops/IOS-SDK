@@ -20,5 +20,6 @@ extern RTAdType const RTAdBannerBottom;
 extern RTAdType const RTAdPopUp;
 extern RTAdType const RTAdNative;
 extern RTAdType const RTAdAudio;
+extern RTAdType const RTAdVideo;
 
 

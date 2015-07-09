@@ -17,5 +17,6 @@
 -(void)startSessionWithAPIKey:(NSString *)APIKey;
 -(void)registerDeviceToken:(NSData *)deviceToken;
 -(void)endTheSession;
+-(void)setYearOfBirth:(NSString *)year monthOfBirth:(NSString*)month dayOfBirth:(NSString *)day gender:(NSString *)sex;
 
 @end

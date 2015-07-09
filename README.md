@@ -3,19 +3,19 @@
 </p>
 
 
-#RedTroops SDK 3.1.1 for IOS
+#RedTroops SDK 3.2.0 for IOS
 
 Requirements: **IOS 6.0 +**
 
 ###Getting Started
 
-RedTroops SDK 3.1.1 currently features:
+RedTroops SDK 3.2.0 currently features:
 
 **Push Notifications.**
 
 **Send user spent time.**
 
-**4 types of (HTML5/Image/audio) ads.**
+**4 types of (HTML5/Image/Video/Audio) ads.**
 
 
 ---------------
@@ -26,9 +26,9 @@ RedTroops SDK 3.1.1 currently features:
 
 
 
-**Setting Up RedTroops SDK 3.1.1 In Your Project**
+**Setting Up RedTroops SDK 3.2.0 In Your Project**
 
-Follow the steps below to get your RedTroops SDK 3.1.1 running:
+Follow the steps below to get your RedTroops SDK 3.2.0 running:
 
 
 1) Download the SDK from here.
@@ -114,6 +114,9 @@ and add the following line of code
 #####3. Native 
 
 #####4. Audio 
+
+#####5. Video 
+
 
 
 ###1. Banner
@@ -448,6 +451,97 @@ and this method is called after the audio ad finished playing
     NSLog(@"Finished");
     [[NSNotificationCenter defaultCenter]removeObserver:self name:AVPlayerItemDidPlayToEndTimeNotification object:self.playerItem];
     
+}
+
+```
+
+---------------
+
+###5. Video Ad
+
+
+In the targeted viewController.m , add these 2 properties
+
+```objective-c
+@property (nonatomic,assign) CGFloat heightOfScreen;
+@property (nonatomic,assign) CGFloat widthOfScreen;
+```
+
+and the following method (this method will give the current screen width and height using any iOS)
+```objective-c
+-(void) getScreenSize
+{
+    NSString *osVersion = [[UIDevice currentDevice] systemVersion];
+    float osVERSION = [osVersion floatValue];
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenWidth = screenRect.size.width;
+    CGFloat screenHeight = screenRect.size.height;
+    if (osVERSION >= 8)
+    {
+        _heightOfScreen = screenHeight;
+        _widthOfScreen = screenWidth;
+    }
+    else
+    {
+        UIInterfaceOrientation statusBarOrientation =[UIApplication sharedApplication].statusBarOrientation;
+        if (statusBarOrientation==4||statusBarOrientation==3)
+        {
+            _heightOfScreen = screenWidth;
+            _widthOfScreen = screenHeight;
+        }
+        else if (statusBarOrientation==1||statusBarOrientation==2)
+        {
+            _heightOfScreen = screenHeight;
+            _widthOfScreen = screenWidth;
+        }
+    }
+}
+```
+
+
+1) Import the following file to your view controller
+```objective-c
+    #import "RTVideo.h"
+```
+
+2) In the ViewController.m Interface 
+
+```objective-c
+@interface ViewController ()
+
+@end
+```
+Add the following property
+
+```objective-c
+@property (nonatomic,strong) RTVideo *videoAd;;
+```
+
+3) Add the following lines to  get video ad
+
+```objective-c
+
+    [self getScreenSize];
+    self.videoAd = [[RTVideo alloc]initWithSize:RTAdVideo];
+    self.videoAd .frame = CGRectMake(0, 0, _widthOfScreen*2, _heightOfScreen*2);
+    [self.view addSubview:self.videoAd ];
+    
+    [self.videoAd  prepareAd];
+    [self.videoAd  playAd];
+    [self.videoAd  addObserver:self forKeyPath:@"frame" options:0 context:NULL];
+
+    
+```
+
+
+4) Add this method, which will be called after closing the ad.
+
+```objective-c
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    NSLog(@"Video ad closed");
+    [self.videoAd  removeObserver:self forKeyPath:@"frame"];
 }
 
 ```

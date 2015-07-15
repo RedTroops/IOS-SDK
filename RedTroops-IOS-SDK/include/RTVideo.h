@@ -24,5 +24,9 @@
 -(void)prepareAd;
 -(void)playAd;
 
+
+- (void)addObserveForKeyPath:(NSString *)keyPath withBlock:(void (^)())block;
+- (void)unobserveKeyPath:(NSString *)keyPath;
+
 @end
 

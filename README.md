@@ -3,13 +3,13 @@
 </p>
 
 
-#RedTroops SDK 3.2.0 for IOS
+#RedTroops SDK 3.2.1 for IOS
 
 Requirements: **IOS 6.0 +**
 
 ###Getting Started
 
-RedTroops SDK 3.2.0 currently features:
+RedTroops SDK 3.2.1 currently features:
 
 **Push Notifications.**
 
@@ -26,9 +26,9 @@ RedTroops SDK 3.2.0 currently features:
 
 
 
-**Setting Up RedTroops SDK 3.2.0 In Your Project**
+**Setting Up RedTroops SDK 3.2.1 In Your Project**
 
-Follow the steps below to get your RedTroops SDK 3.2.0 running:
+Follow the steps below to get your RedTroops SDK 3.2.1 running:
 
 
 1) Download the SDK from here.

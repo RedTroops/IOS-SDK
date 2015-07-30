@@ -11,5 +11,6 @@
 @interface RTAudio : AVPlayer
 
 -(void)playRTAudioAd;
+-(int)checkAudioAvailability;
 
 @end

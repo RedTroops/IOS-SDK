@@ -25,5 +25,6 @@
 -(void)removeTheAd;
 -(void)showAd;
 
+-(int)checkAdAvailability;
 
 @end

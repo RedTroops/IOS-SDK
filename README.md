@@ -250,6 +250,26 @@ Add the following property
 
 ```
 
+##### Check if ad is available 
+
+Ad can now be check is available before adding it
+
+```objective-c
+
+	self.bottomBanner = [[RTAdView alloc] initWithSize:RTAdBannerBottom];
+	int check = [self.bottomBanner checkAdAvailability];
+	if(check == 1)
+	{
+		//add is available
+	}
+	else
+	{
+		//add is not available
+	}
+	
+```
+
+
 ###### Important notes
 
 Note 1: Banner’s size and position are fixed, changing any will result in removing them from the view.
@@ -354,6 +374,26 @@ Add the following property
 
 ```
 
+##### Check if ad is available 
+
+Ad can now be check is available before adding it
+
+```objective-c
+
+	self.ad = [[RTAdView alloc] initWithSize:RTAdPopUp];
+	int check = [self.ad checkAdAvailability];
+	if(check == 1)
+	{
+		//add is available
+	}
+	else
+	{
+		//add is not available
+	}
+	
+```
+
+
 ---------------
 
 ###3. Native
@@ -381,7 +421,7 @@ Add the following property
 
 
 ```objective-c
-    self.adView = [[RTAdView alloc] initWithSize:RTAdNative1to1];
+    self.adView = [[RTAdView alloc] initWithSize:RTAdNative];
     self.adView.frame = CGRectMake(100,400,300,50);
     [self.view addSubview:self.adView];
     [self.view bringSubviewToFront:self.adView];
@@ -390,6 +430,26 @@ Add the following property
     [self.adView showAd];
 
 ```
+
+##### Check if ad is available 
+
+Ad can now be check is available before adding it
+
+```objective-c
+
+	self.adView = [[RTAdView alloc] initWithSize:RTAdNative];
+	int check = [self.adView checkAdAvailability];
+	if(check == 1)
+	{
+		//add is available
+	}
+	else
+	{
+		//add is not available
+	}
+	
+```
+
 
 ######Second line of code means that the ad will be on position (x=100,y=400) with size (width=300, height=50). 
 
@@ -454,6 +514,26 @@ and this method is called after the audio ad finished playing
 }
 
 ```
+
+##### Check if audio is available 
+
+Ad can now be check if available before adding it
+
+```objective-c
+
+	int check = [player checkAudioAvailability];
+
+	if(check == 1)
+	{
+		//add is available
+	}
+	else
+	{
+		//add is not available
+	}
+	
+```
+
 
 ---------------
 
@@ -544,6 +624,26 @@ Add the following property
     [self.videoAd  removeObserver:self forKeyPath:@"frame"];
 }
 
+```
+
+
+##### Check if Video is available 
+
+Ad can now be check if available before adding it
+
+```objective-c
+
+	int check = [self.videoAd checkVideoAvailability];
+
+	if(check == 1)
+	{
+		//add is available
+	}
+	else
+	{
+		//add is not available
+	}
+	
 ```
 
 ---------------

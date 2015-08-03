@@ -22,7 +22,6 @@
 -(void)loadRequest:(RTAdRequest *)request;
 -(void)loadRequest;
 -(void)prepareAd;
--(void)removeTheAd;
 -(void)showAd;
 
 -(int)checkAdAvailability;

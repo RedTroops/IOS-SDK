@@ -276,11 +276,8 @@ Note 1: Banner’s size and position are fixed, changing any will result in remo
 
 Note 2: "showAd" method could be called anytime after "loadRequest" even in another method.
 
-Note 3: Hidding the adView will result in deleting it. Instead use the following method.
+Note 3: Hidding the adView is not allowed.
 
-```objective-c
- [self.adView removeTheAd];
-```
 ---------------
 
 ###2. Interstitial 
@@ -461,11 +458,8 @@ Note 1: Native ads can be placed anywhere INSIDE the screen. Placing the ad outs
 
 *[Here](https://github.com/RedTroops/IOS-SDK/wiki/Adding-Native-ad-to-a-tableView) you can find the guide to add a native ad to a table view.
 
-Note 2: Hidding the adView will result in deleting it. Instead use the following method
+Note 2: Hidding the adView is not allowed.
 
-```objective-c
- [self.adView removeTheAd];
-```
 ---------------
 
 ###4. Audio Ad
